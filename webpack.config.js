@@ -8,7 +8,7 @@ var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   mode: process.env.NODE_ENV || "development",
   entry: {
-    main: `${__dirname}/source/main.ts`
+    main: `${__dirname}/source/main.tsx`
   },
   output: {
     path: `${__dirname}/dist`,

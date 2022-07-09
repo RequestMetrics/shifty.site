@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack",
     "pack": "NODE_ENV=production webpack",
-    "watch": "webpack serve --watch"
+    "watch": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
   "license": "",
   "dependencies": {
     "@request-metrics/browser-agent": "1.2.0",
-    "preact": "10.6.5",
+    "preact": "10.9.0",
     "trackjs": "3.10.1"
   },
   "devDependencies": {
