@@ -1,6 +1,7 @@
 import { h, render } from "preact";
+import { Game } from "./Game/Game";
 import "./main.scss";
 
 const ROOT_ELEMENT = document.querySelector('#app-container') as HTMLElement;
 
-render(<h1>hey</h1>, ROOT_ELEMENT);
+render(<Game />, ROOT_ELEMENT);

@@ -1,0 +1,15 @@
+.game-wrap {
+
+  .product-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .item {
+      flex: 0 0 33%;
+    }
+  }
+
+
+
+}
