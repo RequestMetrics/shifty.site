@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-content: start;
+    height: calc(100vh - 60px);
 
     .item {
       flex: 0 0 33%;

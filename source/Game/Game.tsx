@@ -14,7 +14,7 @@ export class Game extends Component<any, GameState> {
       widgets: []
     }
     this.gameStore = new GameStore(() => this.state, this.setState.bind(this));
-    // setInterval(() => this.refreshItems(), 1_000);
+    setTimeout(() => this.gameStore.tick(), 1_000);
   }
 
   refreshItems() {
