@@ -1,5 +1,5 @@
 import { h, Component } from "preact";
-import { WidgetState } from "./GameStore";
+import { WidgetState } from "./LevelEcommerce";
 import "./Widget.scss";
 
 export class Widget extends Component<WidgetState, any> {

@@ -1,11 +1,11 @@
+import { h, Component } from "preact";
 import { getRandomInteger } from "../util/getRandomInteger";
+import { Widget } from "./Widget";
 
 const NUMBER_OF_WIDGETS = 10;
-const MIN_TICK = 200;
-const MAX_TICK = 1_000;
 
-export interface GameState {
-  widgets: WidgetState[]
+export interface EcommerceLevelState {
+  widgets : WidgetState[]
 }
 
 export interface WidgetState {
@@ -14,43 +14,43 @@ export interface WidgetState {
   isObjective :  boolean
   width : number
   height : number
-  content : any
 }
 
-export class GameStore {
+export class EcommerceLevel extends Component<any, EcommerceLevelState> {
 
-  private getState: () => GameState;
-  private setState: any;
 
   private isObjectiveVisible: boolean = false;
 
-  constructor(getState: any, setState: any) {
+  constructor() {
+    super();
 
-    this.getState = getState;
-    this.setState = setState;
-
-    var initialState = {
+    this.state = {
       widgets: []
     };
 
     for(var i = 0; i < NUMBER_OF_WIDGETS; i++) {
-      initialState.widgets.push({
+      this.state.widgets.push({
         index: i,
         isLoading: true,
+        isObjective: false,
         width: 10,
-        height: 140,
-        content: this.getItemContent()
+        height: 140
       });
     }
 
-    this.setState({ ...initialState });
+    setTimeout(() => this.tick());
   }
 
+  render() {
+    return(
+      <div class="product-grid">
+        {this.state.widgets.map(widgetState => <Widget {...widgetState} />)}
+      </div>
+    );
+  }
 
-  tick() {
-    var state = this.getState();
-
-    var widget = state.widgets[getRandomInteger(0, state.widgets.length)];
+  private tick() : void {
+    let widget = this.state.widgets[getRandomInteger(0, this.state.widgets.length)];
     widget.isLoading = true;
     widget.width = 10;
     widget.height = 140;
@@ -68,17 +68,16 @@ export class GameStore {
         widget.isObjective = true;
         widget.width = 10;
         widget.height = 50;
-        widget.content = "TODO";
       }
       else {
         widget.width = this.getItemWidth();
         widget.height = this.getItemHeight();
       }
 
-      this.setState(state);
+      this.setState(this.state);
     }, this.getLoadingInterval());
 
-    this.setState(state);
+    this.setState(this.state);
     this.setupNextTick();
   }
 
@@ -94,17 +93,14 @@ export class GameStore {
     return getRandomInteger(100, 2_000);
   }
 
-  getItemWidth() : number {
+  private getItemWidth() : number {
     const WIDTHS = [25,25,25,25,25,33,33,33,33,33,50,50,100];
     return WIDTHS[getRandomInteger(0, WIDTHS.length)];
   }
 
-  getItemHeight() : number {
+  private getItemHeight() : number {
     const HEIGHTS = [50,100,200];
     return HEIGHTS[getRandomInteger(0, HEIGHTS.length)];
   }
 
-  getItemContent() : any {
-
-  }
 }
