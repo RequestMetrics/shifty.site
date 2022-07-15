@@ -26,7 +26,7 @@ export class Timer extends Component<TimerProps, TimerState> {
 
   componentDidMount(): void {
     this.timer = setInterval(() => {
-      if (!this.props.since) { return; }
+      if (!this.props.since.isValid) { return; }
       let diff = DateTime.now().diff(this.props.since).shiftTo("minutes", "seconds", "milliseconds");
       this.setState({
         minutes: diff.minutes,
