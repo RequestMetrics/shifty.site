@@ -63,7 +63,7 @@ export class Widget extends Component<WidgetState, any> {
     else if (this.props.status === WidgetStatus.OBJECTIVE) {
       width = 10;
       height = 140;
-      content = (<button type="button" >CLICK</button>);
+      content = (<button type="button">CLICK</button>);
     }
     else if (this.props.status === WidgetStatus.COMPLETE) {
       width = 10;
@@ -78,14 +78,11 @@ export class Widget extends Component<WidgetState, any> {
       <div class="widget" style={{
           "flex": `1 0 ${width}%`,
           "height": `${height}px`,
-          "display": `${this.props.status === WidgetStatus.EMPTY ? "none" : "flex" }`}}>
+          "display": `${this.props.status === WidgetStatus.EMPTY ? "none" : "flex" }`}}
+        onClick={ () => StoreLevelController.click(this.props.index)}>
         {content}
       </div>
     )
-  }
-
-  private tick() {
-
   }
 
   private getRandomWidth() : number {

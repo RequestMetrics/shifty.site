@@ -7,6 +7,7 @@ class _GameTimer {
   private tickHandlers: Array<(tick: number) => void> = [];
 
   public StartedOn: DateTime = DateTime.invalid("initial");
+  public multiplier: number = 0;
 
   start() {
     this.StartedOn = DateTime.now();
@@ -18,12 +19,12 @@ class _GameTimer {
     return this.tickHandlers.length - 1;
   }
 
-  tick() {
+  private tick() {
     this.tickHandlers.forEach((handler) => {
       handler(this.tickCount);
     });
     this.tickCount++;
-    setTimeout(() => this.tick(), getRandomInteger(300, 800));
+    setTimeout(() => this.tick(), getRandomInteger(300, 800) - (this.multiplier * 100));
   }
 
 }

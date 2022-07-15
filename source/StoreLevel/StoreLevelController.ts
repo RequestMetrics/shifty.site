@@ -1,4 +1,3 @@
-import { GameController } from "../GameController";
 import { GameTimer } from "../GameTimer";
 import { getRandomInteger } from "../util/getRandomInteger";
 
@@ -47,12 +46,10 @@ class _StoreLevelController {
         index: i,
         status: WidgetStatus.EMPTY
       };
-      // this.reloadWidget(widget);
       initialState.widgets.push(widget);
     }
 
     this.setState({ ...initialState });
-    // setTimeout(() => this.tick());
   }
 
   onTick() {
@@ -85,74 +82,45 @@ class _StoreLevelController {
     this.updateWidgetState(widget);
   }
 
-  // click(index : number) {
-  //   let widget = this.getState().widgets[index];
+  click(index: number) {
+    let state = this.getState();
+    let widget = state.widgets[index];
 
-  //   if (widget.status === WidgetStatus.OBJECTIVE) {
-  //     widget.status = WidgetStatus.COMPLETE;
-  //     this.setState(this.getState);
-  //     alert('yay');
-  //   }
-  // }
+    if (widget.status === WidgetStatus.OBJECTIVE) {
+      widget.status = WidgetStatus.COMPLETE;
+      this.updateWidgetState(widget);
 
-  // private reloadWidget(widget : WidgetState) {
-  //   let state = this.getState();
+      let clicks = state.clicks + 1;
+      if (clicks >= CLICKS_TO_WIN) {
+        alert('YOU WON!');
+      }
+      else {
+        this.setState({ isObjectiveVisible: false });
+        alert('ANOTHER ONE!');
+      }
 
-  //   if (widget.status === WidgetStatus.OBJECTIVE) {
-  //     this.setState({ isObjectiveVisible : false });
-  //   }
+      GameTimer.multiplier = clicks;
+      this.setState({ clicks });
+    }
+    else {
+      this.reset();
+      alert('boo');
+    }
+  }
 
-  //   widget.status = WidgetStatus.LOADING;
-  //   this.updateWidgetState(widget);
-
-  //   setTimeout(() => {
-  //     let state = this.getState();
-
-  //     if (!state.isObjectiveVisible && widget.index >= 3) {
-  //       this.setState({ isObjectiveVisible : true });
-  //       widget.status = WidgetStatus.OBJECTIVE;
-  //     }
-  //     else {
-  //       widget.status = WidgetStatus.CONTENT;
-  //     }
-
-  //     this.updateWidgetState(widget);
-  //   }, getRandomInteger(100, 2_000));
-  // }
-
-  // private tick() : void {
-  //   let widget = this.getChangeableWidget();
-  //   if (widget === null) { this.setupNextTick(); return; }
-
-  //   let state = this.getState();
-
-  //   this.reloadWidget(widget);
-  //   this.setState(state);
-  //   this.setupNextTick();
-  // }
-
-  // private setupNextTick() {
-  //   setTimeout(() => this.tick(), this.getTickInterval())
-  // }
-
-  // private getChangeableWidget() : WidgetState {
-  //   let state = this.getState();
-  //   let widget;
-
-  //   if (!state.widgets.some((widget) => widget.status === WidgetStatus.CONTENT || widget.status === WidgetStatus.OBJECTIVE)) {
-  //     return null;
-  //   }
-
-  //   while(!widget || !widget.isLoading || !widget.isComplete) {
-  //     widget = state.widgets[getRandomInteger(0, state.widgets.length)];
-  //   }
-
-  //   return widget;
-  // }
-
-  // private getTickInterval() : number {
-  //   return getRandomInteger(300, 800)
-  // }
+  private reset() {
+    let state = this.getState()
+    this.setState({
+      clicks: 0,
+      widgets: state.widgets.map((w) => {
+        if (w.status === WidgetStatus.COMPLETE) {
+          w.status = WidgetStatus.LOADING;
+        }
+        return w;
+      })
+    });
+    GameTimer.multiplier = 0;
+  }
 
   private updateWidgetState(widget : WidgetState) {
     let state = this.getState();
