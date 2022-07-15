@@ -1,6 +1,7 @@
 import { h, Component } from "preact";
 import { StoreLevelController, StoreLevelState } from "./StoreLevelController";
 import { Widget } from "./Widget";
+import "./StoreLevel.scss";
 
 
 export class StoreLevel extends Component<any, StoreLevelState> {
@@ -12,8 +13,10 @@ export class StoreLevel extends Component<any, StoreLevelState> {
 
   render() {
     return(
-      <div class="product-grid">
-        {this.state.widgets.map(widgetState => <Widget {...widgetState} />)}
+      <div class="store-level">
+        <div class="widget-grid" onTouchStart={(e) => StoreLevelController.click(-1, e) }>
+          {this.state.widgets.map(widgetState => <Widget {...widgetState} />)}
+        </div>
       </div>
     );
   }

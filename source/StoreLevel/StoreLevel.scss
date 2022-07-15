@@ -1,0 +1,65 @@
+.store-level {
+  height: 100%;
+  width: 100%;
+  background-color: #f0f2f4;
+
+  .widget-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: start;
+    justify-content: center;
+    height: calc(100vh - 60px);
+  }
+
+  .widget {
+    height: fit-content;
+
+    img {
+      margin: 10px 0 0 10px;
+      width: calc(100% - 10px);
+      height: auto;
+    }
+
+    .loading {
+      width: 100%;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      margin: 10px 0 0 10px;
+      border: 1px solid rgb(197, 203, 213);
+
+      .spinner {
+        animation: spinFull 1.1s steps(12) infinite;
+        background-color: initial;
+        background-image: url('/assets/images/loading.svg');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        display: inline-block;
+        font-size: 3em;
+        height: 1em;
+        line-height: 1em;
+        width: 1em;
+
+        &::before {
+          content: " ";
+        }
+      }
+
+    }
+  }
+
+}
+
+
+@keyframes spinFull {
+  0% {
+      transform: rotate(0deg)
+  }
+  to {
+      transform: rotate(1turn)
+  }
+}

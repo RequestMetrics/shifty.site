@@ -17,7 +17,7 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: `${__dirname}/dist`,
+      directory: `${__dirname}/source`,
     },
     compress: true,
     port: 9000,
@@ -44,10 +44,19 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader, // Puts CSS into its own file
-          "css-loader",   // Translates CSS into CommonJS
+          {
+            loader: "css-loader",
+            options: {
+              url: false
+            } // Translates CSS into CommonJS
+          },
           "sass-loader",  // Compiles Sass to CSS
-        ],
+        ]
       },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'url-loader'
+      }
     ]
   },
 
@@ -56,6 +65,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${__dirname}/source/index.html`,
       filename: "index.html"
-    }),
+    })
   ]
 };

@@ -18,8 +18,13 @@ export class Game extends Component<any, GameState> {
     return(
       <div class="game-wrap">
         <header>
-          <h1>My Cool Game</h1>
-          <Timer since={ GameTimer.StartedOn } />
+          <div class="header-box">
+            <h1>Shifty.site</h1>
+            <div class="controls">
+              <Timer since={ GameTimer.StartedOn } />
+              <button onClick={() => GameTimer.pause() }>Pause</button>
+            </div>
+          </div>
         </header>
         <div class="level-wrap">
           { this.renderLevel() }

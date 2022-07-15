@@ -18,7 +18,8 @@
     "@types/luxon": "2.3.2",
     "luxon": "3.0.1",
     "preact": "10.9.0",
-    "trackjs": "3.10.1"
+    "trackjs": "3.10.1",
+    "url-loader": "4.1.1"
   },
   "devDependencies": {
     "awesome-typescript-loader": "5.2.1",

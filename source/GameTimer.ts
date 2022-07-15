@@ -5,6 +5,7 @@ class _GameTimer {
 
   private tickCount: number = 0;
   private tickHandlers: Array<(tick: number) => void> = [];
+  private nextTick: NodeJS.Timer;
 
   public StartedOn: DateTime = DateTime.invalid("initial");
   public multiplier: number = 0;
@@ -12,6 +13,10 @@ class _GameTimer {
   start() {
     this.StartedOn = DateTime.now();
     this.tick();
+  }
+
+  pause() {
+    clearTimeout(this.nextTick);
   }
 
   onTick(handler: (tick: number) => void): number {
@@ -24,7 +29,7 @@ class _GameTimer {
       handler(this.tickCount);
     });
     this.tickCount++;
-    setTimeout(() => this.tick(), getRandomInteger(300, 800) - (this.multiplier * 100));
+    this.nextTick = setTimeout(() => this.tick(), getRandomInteger(500, 1000) - (this.multiplier * 200));
   }
 
 }

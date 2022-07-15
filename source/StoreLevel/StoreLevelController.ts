@@ -1,7 +1,7 @@
 import { GameTimer } from "../GameTimer";
 import { getRandomInteger } from "../util/getRandomInteger";
 
-const WIDGET_COUNT = 10;
+const WIDGET_COUNT = 8;
 const CLICKS_TO_WIN = 3;
 
 export interface StoreLevelState {
@@ -82,11 +82,13 @@ class _StoreLevelController {
     this.updateWidgetState(widget);
   }
 
-  click(index: number) {
+  click(index: number, event: Event) {
+    event.stopPropagation();
+
     let state = this.getState();
     let widget = state.widgets[index];
 
-    if (widget.status === WidgetStatus.OBJECTIVE) {
+    if (widget && widget.status === WidgetStatus.OBJECTIVE) {
       widget.status = WidgetStatus.COMPLETE;
       this.updateWidgetState(widget);
 
