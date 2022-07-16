@@ -4,6 +4,7 @@ import { StoreLevel } from "./StoreLevel/StoreLevel";
 import { Timer } from "./Timer/Timer";
 import "./Game.scss";
 import { GameTimer } from "./GameTimer";
+import { ShiftCounter } from "./ShiftCounter/ShiftCounter";
 
 
 export class Game extends Component<any, GameState> {
@@ -22,6 +23,7 @@ export class Game extends Component<any, GameState> {
             <h1>Shifty.site</h1>
             <div class="controls">
               <Timer since={ GameTimer.StartedOn } />
+              <ShiftCounter />
               <button onClick={() => GameTimer.pause() }>Pause</button>
             </div>
           </div>
