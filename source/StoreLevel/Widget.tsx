@@ -2,137 +2,131 @@ import { h, Component } from "preact";
 import { getRandomInteger } from "../util/getRandomInteger";
 import { StoreLevelController, WidgetState, WidgetStatus } from "./StoreLevelController";
 
-/*
-  OBJ: 3x Free Gifts, 3x Added
-  Loading
-  10x
-    1. Black Friday Sale
-    2. Clearance
-    3. Top Deals
-    4. Back to School
-
-
-*/
-
 const CONTENT = [
+  // {
+  //   width: 100,
+  //   content: (
+  //     <img src="/assets/images/trending.png" height="468" width="2400" />
+  //   )
+  // },
+  // {
+  //   width: 100,
+  //   content: (
+  //     <img src="/assets/images/best-selling.png" height="468" width="2400" />
+  //   )
+  // },
   {
-    width: 100,
+    width: 60,
     content: (
-      <img src="/assets/images/trending.png" height="556" width="2400" />
+      <img src="/assets/images/top-deals.png" height="400" width="1200" />
     )
   },
   {
-    width: 100,
+    width: 60,
     content: (
-      <img src="/assets/images/best-selling.png" height="556" width="2400" />
+      <img src="/assets/images/black-friday.png" height="400" width="1200" />
     )
   },
   {
-    width: 50,
+    width: 60,
     content: (
-      <img src="/assets/images/top-deals.png" height="500" width="1200" />
+      <img src="/assets/images/macbook-air.png" height="400" width="1200" />
     )
   },
   {
-    width: 50,
-    content: (
-      <img src="/assets/images/macbook-air.png" height="500" width="1200" />
-    )
-  },
-  {
-    width: 33,
+    width: 40,
     content: (
       <img src="/assets/images/smarttvs.png" height="400" width="800" />
     )
   },
   {
-    width: 33,
+    width: 40,
     content: (
       <img src="/assets/images/car-audio.png" height="400" width="800" />
     )
   },
   {
-    width: 33,
+    width: 40,
     content: (
       <img src="/assets/images/galaxy-watch.png" height="400" width="800" />
     )
   },
   {
-    width: 33,
+    width: 40,
     content: (
       <img src="/assets/images/kitchen.png" height="400" width="800" />
     )
   },
   {
-    width: 33,
+    width: 40,
     content: (
       <img src="/assets/images/samsung-galaxy.png" height="400" width="800" />
     )
   },
   {
-    width: 33,
+    width: 40,
     content: (
       <img src="/assets/images/video-games.png" height="400" width="800" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/god-of-war.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/god-of-war.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/intex-pool.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/intex-pool.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/lenovo-yoga.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/lenovo-yoga.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/pokemon.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/pokemon.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/samsung-24.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/samsung-24.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/god-of-war.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/god-of-war.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/intex-pool.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/intex-pool.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/lenovo-yoga.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/lenovo-yoga.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/pokemon.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/pokemon.png" height="600" width="600" />
     )
   },
   {
-    width: 25,
+    width: 20,
     content: (
-      <img src="/assets/images/samsung-24.png" height="600" width="600"  style="border: 1px solid rgb(197, 203, 213)" />
+      <img src="/assets/images/samsung-24.png" height="600" width="600"  />
     )
   },
 ]
@@ -155,7 +149,7 @@ export class Widget extends Component<WidgetState, any> {
     }
     else if (this.props.status === WidgetStatus.LOADING) {
       return this.renderWidget({
-        width: 25,
+        width: 20,
         height: "auto",
         grow: true,
         content: (
@@ -168,17 +162,17 @@ export class Widget extends Component<WidgetState, any> {
     }
     else if (this.props.status === WidgetStatus.OBJECTIVE) {
       return this.renderWidget({
-        width: 25,
+        width: 20,
         content: (
-          <img src="/assets/images/deal-of-the-day.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+          <img src="/assets/images/deal-of-the-day.png" height="600" width="600" />
         )
       });
     }
     else if (this.props.status === WidgetStatus.COMPLETE) {
       return this.renderWidget({
-        width: 25,
+        width: 20,
         content: (
-          <img src="/assets/images/deal-of-the-day-done.png" height="600" width="600" style="border: 1px solid rgb(197, 203, 213)" />
+          <img src="/assets/images/deal-of-the-day-done.png" height="600" width="600" />
         )
       });
     }
@@ -199,16 +193,6 @@ export class Widget extends Component<WidgetState, any> {
         {opts.content}
       </div>
     )
-  }
-
-  private getRandomWidth() : number {
-    const WIDTHS = [25,25,25,25,25,33,33,33,33,33,50,50,100];
-    return WIDTHS[getRandomInteger(0, WIDTHS.length)];
-  }
-
-  private getRandomHeight() : number {
-    const HEIGHTS = [50,100,200];
-    return HEIGHTS[getRandomInteger(0, HEIGHTS.length)];
   }
 
   private getRandomContent() : { width: number, content: h.JSX.Element } {

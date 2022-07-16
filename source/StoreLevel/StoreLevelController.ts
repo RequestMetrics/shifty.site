@@ -1,12 +1,15 @@
 import { GameTimer } from "../GameTimer";
 import { getRandomInteger } from "../util/getRandomInteger";
 
-const WIDGET_COUNT = 8;
+const WIDGET_COUNT = 10;
 const CLICKS_TO_WIN = 3;
 
 export interface StoreLevelState {
   clicks : number
   isObjectiveVisible : boolean
+  showFailModal : boolean
+  failModalAdjustX : number
+  failModalAdjustY : number
   widgets : WidgetState[]
 }
 
@@ -38,6 +41,7 @@ class _StoreLevelController {
     let initialState = {
       clicks: 0,
       isObjectiveVisible: false,
+      showFailModal: false,
       widgets: []
     };
 
@@ -54,12 +58,31 @@ class _StoreLevelController {
 
   onTick() {
     let state = this.getState();
-    let widget = state.widgets[getRandomInteger(0, state.widgets.length)];
 
-    if (widget.status === WidgetStatus.EMPTY) {
-      widget.status = WidgetStatus.LOADING;
+    let unloadedWidgets = state.widgets.filter((w) => w.status === WidgetStatus.EMPTY);
+    if (unloadedWidgets.length) {
+      this.setLoading(unloadedWidgets[0]);
+      this.updateWidgetState(unloadedWidgets[0]);
+      return;
     }
-    else if (widget.status === WidgetStatus.LOADING) {
+
+    let changeableWidgets = state.widgets.filter((w) => w.status !== WidgetStatus.LOADING);
+    if (!changeableWidgets.length) { return; }
+
+    let widget = changeableWidgets[getRandomInteger(0, changeableWidgets.length)];
+
+    if (widget.status === WidgetStatus.OBJECTIVE) {
+      this.setState({ isObjectiveVisible: false });
+    }
+
+    this.setLoading(widget);
+    this.updateWidgetState(widget);
+  }
+
+  private setLoading(widget: WidgetState) {
+    widget.status = WidgetStatus.LOADING;
+    setTimeout(() => {
+      let state = this.getState();
       if (!state.isObjectiveVisible && widget.index >= 3) {
         this.setState({ isObjectiveVisible: true });
         widget.status = WidgetStatus.OBJECTIVE;
@@ -67,19 +90,8 @@ class _StoreLevelController {
       else {
         widget.status = WidgetStatus.CONTENT;
       }
-    }
-    else if (widget.status === WidgetStatus.OBJECTIVE) {
-      widget.status = WidgetStatus.LOADING;
-      this.setState({ isObjectiveVisible: false });
-    }
-    else if (widget.status === WidgetStatus.CONTENT) {
-      widget.status = WidgetStatus.LOADING;
-    }
-    else {
-      // ... do nothing
-    }
-
-    this.updateWidgetState(widget);
+      this.updateWidgetState(widget);
+    }, getRandomInteger(600, 3200))
   }
 
   click(index: number, event: Event) {
@@ -98,7 +110,6 @@ class _StoreLevelController {
       }
       else {
         this.setState({ isObjectiveVisible: false });
-        alert('ANOTHER ONE!');
       }
 
       GameTimer.multiplier = clicks;
@@ -106,8 +117,24 @@ class _StoreLevelController {
     }
     else {
       this.reset();
-      alert('boo');
+      this.setState({
+        showFailModal: true,
+        failModalAdjustX: getRandomInteger(-40,40),
+        failModalAdjustY: getRandomInteger(-40,40)
+      });
     }
+  }
+
+  clearFail() {
+    this.setState({ showFailModal: false });
+  }
+
+  doubleFail() {
+    this.setState({
+      showFailModal: true,
+      failModalAdjustX: getRandomInteger(-40,40),
+      failModalAdjustY: getRandomInteger(-40,40)
+    });
   }
 
   private reset() {

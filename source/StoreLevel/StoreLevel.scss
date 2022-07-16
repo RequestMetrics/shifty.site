@@ -1,7 +1,54 @@
 .store-level {
+
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+
   height: 100%;
   width: 100%;
   background-color: #f0f2f4;
+
+  .store-header {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: #0046be;
+    width: 100%;
+    justify-content: space-between;
+
+    .logo {
+      margin: 12px 20px;
+      img {
+        max-height: 100%;
+        width: auto;
+      }
+    }
+
+    .cart {
+      margin: 12px 20px;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      position: relative;
+      .cart-count {
+        position: absolute;
+        top: -7px;
+        left: 12px;
+        background: #fff200;
+        border-radius: 20px;
+        width: 22px;
+        height: 22px;
+        padding: 2px;
+        color: black;
+        text-align: center;
+        font-size: 18px;
+        line-height: 22px;
+      }
+      .cart-label {
+        margin-left: 10px;
+      }
+    }
+  }
 
   .widget-grid {
     display: flex;
@@ -19,6 +66,7 @@
       margin: 10px 0 0 10px;
       width: calc(100% - 10px);
       height: auto;
+      border: 1px solid rgb(197, 203, 213)
     }
 
     .loading {
@@ -49,6 +97,57 @@
         }
       }
 
+    }
+  }
+
+  .modal-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-box {
+    width: 40vw;
+    background: white;
+    padding: 20px;
+    height: 40vh;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px rgb(0 0 0 / 50%);
+  }
+
+  .newsletter-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+
+    h2 {
+      margin-bottom: 0;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    p {
+      flex: 1 1 auto;
+    }
+    button {
+      background-color: #0046be;
+      color: white;
+      font-size: 18px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 5px;
+    }
+    a {
+      margin-top: 10px;
+      font-size: 0.8em;
     }
   }
 
