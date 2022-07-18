@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
 import { h, Component } from "preact";
+import "./Timer.scss";
 
 export interface TimerProps {
   since : DateTime
@@ -43,7 +44,14 @@ export class Timer extends Component<TimerProps, TimerState> {
   render() : h.JSX.Element {
     return (
       <div class="timer">
-        { this.state.minutes } : { this.state.seconds } . { this.state.milliseconds }
+        <div class="label">Time</div>
+        <div class="value">
+          { this.state.minutes.toString().padStart(2, '0') }
+          <span class="marker">:</span>
+          { this.state.seconds.toString().padStart(2, '0') }
+          <span class="marker">.</span>
+          { this.state.milliseconds.toString().padEnd(3, '0') }
+        </div>
       </div>
     )
   }

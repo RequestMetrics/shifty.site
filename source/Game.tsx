@@ -24,7 +24,7 @@ export class Game extends Component<any, GameState> {
             <div class="controls">
               <Timer since={ GameTimer.StartedOn } />
               <ShiftCounter />
-              <button onClick={() => GameTimer.pause() }>Pause</button>
+              {/* <button onClick={() => GameTimer.pause() }>Pause</button> */}
             </div>
           </div>
         </header>
