@@ -19,6 +19,10 @@
     font-size: 1.4em;
     letter-spacing: 1px;
     font-weight: 100;
+
+    &.danger {
+      color: rgb(255, 80, 80);
+    }
   }
 
   .marker {

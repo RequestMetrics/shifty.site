@@ -22,7 +22,7 @@ export class Game extends Component<any, GameState> {
           <div class="header-box">
             <h1>Shifty.site</h1>
             <div class="controls">
-              <Timer since={ GameTimer.StartedOn } />
+              <Timer until={ this.state.endTime } />
               <ShiftCounter />
               {/* <button onClick={() => GameTimer.pause() }>Pause</button> */}
             </div>

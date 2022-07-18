@@ -1,3 +1,4 @@
+import { GameController } from "../GameController";
 import { GameTimer } from "../GameTimer";
 import { getRandomInteger } from "../util/getRandomInteger";
 
@@ -36,7 +37,7 @@ class _StoreLevelController {
     this.getState = getState;
     this.setState = setState;
 
-    GameTimer.onTick(() => this.onTick())
+    GameTimer.onTick(() => this.onTick());
 
     let initialState = {
       clicks: 0,
