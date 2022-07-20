@@ -4,13 +4,18 @@ import { getRandomInteger } from "../util/getRandomInteger";
 
 const WIDGET_COUNT = 10;
 const CLICKS_TO_WIN = 3;
+const MODAL_X_ADJUST = 40;
+const MODAL_Y_ADJUST = 50;
 
 export interface StoreLevelState {
   clicks : number
+  hasShownExperienceModal: boolean
   isObjectiveVisible : boolean
+  showExperienceModal: boolean
+  showExperienceThanksModal: boolean
   showFailModal : boolean
-  failModalAdjustX : number
-  failModalAdjustY : number
+  modalAdjustX : number
+  modalAdjustY : number
   widgets : WidgetState[]
 }
 
@@ -41,7 +46,10 @@ class _StoreLevelController {
 
     let initialState = {
       clicks: 0,
+      hasShownExperienceModal: false,
       isObjectiveVisible: false,
+      showExperienceModal: false,
+      showExperienceThanksModal: false,
       showFailModal: false,
       widgets: []
     };
@@ -105,23 +113,31 @@ class _StoreLevelController {
       widget.status = WidgetStatus.COMPLETE;
       this.updateWidgetState(widget);
 
-      let clicks = state.clicks + 1;
-      if (clicks >= CLICKS_TO_WIN) {
+      state.clicks = state.clicks + 1;
+
+      if (!state.hasShownExperienceModal) {
+        state.hasShownExperienceModal = true;
+        state.showExperienceModal = true;
+        state.modalAdjustX = getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST);
+        state.modalAdjustY = getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST);
+      }
+
+      if (state.clicks >= CLICKS_TO_WIN) {
         alert('YOU WON!');
       }
       else {
-        this.setState({ isObjectiveVisible: false });
+        state.isObjectiveVisible = false;
       }
 
-      GameTimer.multiplier = clicks;
-      this.setState({ clicks });
+      GameTimer.multiplier = state.clicks;
+      this.setState(state);
     }
     else {
       this.reset();
       this.setState({
         showFailModal: true,
-        failModalAdjustX: getRandomInteger(-40,40),
-        failModalAdjustY: getRandomInteger(-40,40)
+        modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
+        modalAdjustY: getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST)
       });
     }
   }
@@ -133,9 +149,27 @@ class _StoreLevelController {
   doubleFail() {
     this.setState({
       showFailModal: true,
-      failModalAdjustX: getRandomInteger(-40,40),
-      failModalAdjustY: getRandomInteger(-40,40)
+      modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
+      modalAdjustY: getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST)
     });
+  }
+
+  clearExperience() {
+    this.setState({ showExperienceModal: false });
+  }
+
+  clickRatings() {
+    this.reset();
+    this.setState({
+      showExperienceModal: false,
+      showExperienceThanksModal: true,
+      modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
+      modalAdjustY: getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST)
+    });
+  }
+
+  clearRatingsThanks() {
+    this.setState({ showExperienceThanksModal: false });
   }
 
   private reset() {

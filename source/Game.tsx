@@ -5,6 +5,7 @@ import { Timer } from "./Timer/Timer";
 import "./Game.scss";
 import { GameTimer } from "./GameTimer";
 import { ShiftCounter } from "./ShiftCounter/ShiftCounter";
+import { Launcher } from "./Launcher/Launcher";
 
 
 export class Game extends Component<any, GameState> {
@@ -17,7 +18,7 @@ export class Game extends Component<any, GameState> {
 
   render(): h.JSX.Element {
     return(
-      <div class="game-wrap">
+      <div class="game">
         <header>
           <div class="header-box">
             <h1>Shifty.site</h1>
@@ -37,11 +38,7 @@ export class Game extends Component<any, GameState> {
 
   renderLevel() : h.JSX.Element {
     if (this.state.level === level.NO_LEVEL) {
-      return (
-        <div>
-          <button type="button" onClick={e => GameController.start(level.STORE) }>Start!</button>
-        </div>
-      )
+      return (<Launcher />)
     }
     else if (this.state.level === level.STORE) {
       return (<StoreLevel />);

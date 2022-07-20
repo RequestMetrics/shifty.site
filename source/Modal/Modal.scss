@@ -1,0 +1,21 @@
+.modal-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0,0,0,.5);
+  justify-content: center;
+  align-items: center;
+
+  .modal-box {
+    width: 40vw;
+    background: white;
+    padding: 20px;
+    height: 40vh;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px rgb(0 0 0 / 50%);
+  }
+}
+

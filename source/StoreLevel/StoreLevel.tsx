@@ -1,10 +1,9 @@
 import { h, Component } from "preact";
 import { StoreLevelController, StoreLevelState } from "./StoreLevelController";
 import { Widget } from "./Widget";
-import "./StoreLevel.scss";
 import { FailModal } from "./FailModal";
-import { getRandomInteger } from "../util/getRandomInteger";
-
+import { ExperienceModal, ExperienceThanksModal } from "./ExperienceModal";
+import "./StoreLevel.scss";
 
 export class StoreLevel extends Component<any, StoreLevelState> {
 
@@ -29,7 +28,9 @@ export class StoreLevel extends Component<any, StoreLevelState> {
         <div class="widget-grid" onTouchStart={(e) => StoreLevelController.click(-1, e) }>
           {this.state.widgets.map(widgetState => <Widget {...widgetState} />)}
         </div>
-        <FailModal isOpen={this.state.showFailModal} xAdjust={this.state.failModalAdjustX} yAdjust={this.state.failModalAdjustY} />
+        <FailModal isOpen={this.state.showFailModal} xAdjust={this.state.modalAdjustX} yAdjust={this.state.modalAdjustY} />
+        <ExperienceModal isOpen={this.state.showExperienceModal} xAdjust={this.state.modalAdjustX} yAdjust={this.state.modalAdjustY} />
+        <ExperienceThanksModal isOpen={this.state.showExperienceThanksModal} xAdjust={this.state.modalAdjustX} yAdjust={this.state.modalAdjustY} />
       </div>
     );
   }
