@@ -11,13 +11,13 @@ module.exports = {
     main: `${__dirname}/source/main.tsx`
   },
   output: {
-    path: `${__dirname}/dist`,
-    filename: "[name].bundle.js"
+    path: `${__dirname}/public`,
+    filename: "[name].[chunkhash].js"
   },
 
   devServer: {
     static: {
-      directory: `${__dirname}/source`,
+      directory: `${__dirname}/public`,
     },
     compress: true,
     port: 9000,
@@ -61,10 +61,16 @@ module.exports = {
   },
 
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash].css"
+    }),
     new HtmlWebpackPlugin({
-      template: `${__dirname}/source/index.html`,
-      filename: "index.html"
+      template: `${__dirname}/source/index.ejs`,
+      filename: "index.html",
+      templateParameters: {
+        "version": pkg.version,
+        "build_time": new Date().toISOString()
+      },
     })
   ]
 };
