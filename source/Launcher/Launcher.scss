@@ -45,4 +45,23 @@
       color: white;
     }
   }
+
+  .rm-logo {
+    margin-top: 40px;
+    img {
+      width: 200px;
+      height: auto;
+    }
+  }
+
+  .sloth-this {
+    img {
+      position: absolute;
+      bottom: -50px;
+      left: 50px;
+      width: 360px;
+      height: auto;
+      transform: scaleX(-1);
+    }
+  }
 }

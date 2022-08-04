@@ -33,6 +33,10 @@ dl, dd, ol, ul, figure {
   &.justify-center {
     justify-content: center;
   }
+
+  &.align-center {
+    align-items: center;
+  }
 }
 
 .text-center {

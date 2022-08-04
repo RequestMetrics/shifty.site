@@ -31,6 +31,17 @@ export class Launcher extends Component<any, any> {
 
           </div>
 
+          <div class="rm-logo flex flex-column align-center">
+            <h4>Developed By</h4>
+            <a href="https://requestmetrics.com/">
+              <img src="/assets/images/request_metrics_logo.svg" alt="Request Metrics" width="300" height="102" />
+            </a>
+          </div>
+
+          <div class="sloth-this">
+            <img src="/assets/images/this_500_apng.png" width="500" height="500" />
+          </div>
+
         </div>
 
 
