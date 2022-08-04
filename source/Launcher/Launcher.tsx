@@ -1,8 +1,17 @@
 import { h, Component } from "preact";
 import { GameController, level } from "../GameController";
 import "./Launcher.scss";
+import { SignupModal } from "./SignupModal";
 
 export class Launcher extends Component<any, any> {
+
+  constructor() {
+    super();
+
+    this.state ={
+      isSignupModalOpen: false
+    };
+  }
 
 
   render() : h.JSX.Element {
@@ -12,11 +21,9 @@ export class Launcher extends Component<any, any> {
           <h2>Get the deals before they’re gone!</h2>
 
           <div class="launch-content flex">
-
             <div class="illustration">
               <img src="/assets/images/deal-of-the-day.png" height="600" width="600" />
             </div>
-
             <div class="instructions">
               <p>
                 The GreatGets website sucks. It loads async content in random
@@ -26,9 +33,8 @@ export class Launcher extends Component<any, any> {
                 They are giving away 3 deals, but only for 30 seconds!
                 Can you add all 3 to your cart before the time runs out?
               </p>
-              <button type="button" onClick={e => GameController.start(level.STORE) }>Start!</button>
+              <button type="button" class="btn btn-blue" onClick={e => this.setState({isSignupModalOpen:true}) }>Start!</button>
             </div>
-
           </div>
 
           <div class="rm-logo flex flex-column align-center">
@@ -44,7 +50,7 @@ export class Launcher extends Component<any, any> {
 
         </div>
 
-
+        <SignupModal isOpen={this.state.isSignupModalOpen} onClose={() => this.setState({isSignupModalOpen:false})} />
 
       </div>
     )

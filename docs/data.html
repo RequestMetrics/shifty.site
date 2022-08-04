@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <main id="data">
+      <div>name,email,timestamp</div>
+    </main>
+    <script>
+      let el = document.getElementById('data');
+      let playerData = JSON.parse(localStorage.getItem('rm_player_data'));
+
+      playerData.forEach(player => {
+        let div = document.createElement('div');
+        div.innerText = `${player.name},${player.email},${player.timestamp}`;
+        el.appendChild(div);
+      });
+    </script>
+  </body>
+</html>

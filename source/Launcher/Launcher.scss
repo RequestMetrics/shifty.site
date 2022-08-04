@@ -64,4 +64,45 @@
       transform: scaleX(-1);
     }
   }
+
+  .signup-modal {
+    h2 {
+      font-size: 1.8em;
+    }
+    form {
+      margin: 20px 0 0;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        span {
+          font-weight: bold;
+        }
+        input {
+          font-size: 1.2em;
+          padding: 10px 5px;
+          background: #efefef;
+          border: none;
+          border-bottom: 2px solid #222;
+        }
+      }
+
+      label + label {
+        margin-top: 20px;
+      }
+
+      .controls {
+        margin: 20px auto 0;
+
+        .btn {
+          min-width: 180px;
+        }
+
+        .btn + .btn {
+          margin-left: 10px;
+        }
+      }
+
+    }
+  }
 }

@@ -5,7 +5,8 @@ export interface ModalProps {
   isOpen: boolean,
   content?: h.JSX.Element,
   xAdjust?: number,
-  yAdjust?: number
+  yAdjust?: number,
+  onClose?: Function
 }
 
 export class Modal extends Component<ModalProps, any> {

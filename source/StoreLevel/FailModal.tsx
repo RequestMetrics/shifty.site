@@ -8,7 +8,7 @@ export class FailModal extends Component<ModalProps, any> {
     return (
       <Modal content={
         <div class="newsletter-modal">
-            <h2>Join Our NewsLetter and Save!</h2>
+            <h2>Join Our Newsletter and Save!</h2>
             <h3>A Really Annoying Popup</h3>
             <p>
               Join our newsletter and we'll send you 10 emails every day about
