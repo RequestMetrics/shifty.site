@@ -1,4 +1,7 @@
 .launcher {
+  background-color: #f0f2f4;
+  font-family: "Helvetica", sans-serif;
+
   .container {
     padding-top: 200px;
     height: 100vh;
@@ -7,6 +10,39 @@
 
   h2 {
     text-align: center;
+    font-size: 2.6em;
+    margin-bottom: 20px;
+  }
 
+  .illustration {
+    flex: 0 0 260px;
+    padding: 20px;
+    border: 1px solid rgb(197, 203, 213);
+    background-color: white;
+    height: fit-content;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .instructions {
+    font-size: 1.3em;
+    line-height: 1.5em;
+    padding: 20px;
+    p + p {
+      margin-top: 10px;
+    }
+
+    button {
+      margin: 20px auto;
+      padding: 10px 40px;
+      font-size: 1.3em;
+      display: block;
+      border: none;
+      border-radius: 10px;
+      background-color: rgb(55, 102, 196);
+      color: white;
+    }
   }
 }

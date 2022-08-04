@@ -9,7 +9,7 @@ export class Launcher extends Component<any, any> {
     return (
       <div class="launcher">
         <div class="container flex flex-column">
-          <h2>You’re Running Out Of Time!</h2>
+          <h2>Get the deals before they’re gone!</h2>
 
           <div class="launch-content flex">
 
@@ -19,12 +19,12 @@ export class Launcher extends Component<any, any> {
 
             <div class="instructions">
               <p>
-                GreatGets is giving away 3 free ThingsYouWant&trade; for the next 30 seconds!
-                Can you add all three to your cart?
+                The GreatGets website sucks. It loads async content in random
+                sizes, causing frustrating <strong>layout shifts</strong>.
               </p>
               <p>
-                But the GreatGets website loads tons async content in
-                different sizes, causing the layout to shift around constantly.
+                They are giving away 3 deals, but only for 30 seconds!
+                Can you add all 3 to your cart before the time runs out?
               </p>
               <button type="button" onClick={e => GameController.start(level.STORE) }>Start!</button>
             </div>

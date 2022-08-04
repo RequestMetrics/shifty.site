@@ -16,55 +16,55 @@ const CONTENT = [
   //   )
   // },
   {
-    width: 60,
+    width: 58,
     content: (
       <img src="/assets/images/top-deals.png" height="400" width="1200" />
     )
   },
   {
-    width: 60,
+    width: 58,
     content: (
       <img src="/assets/images/black-friday.png" height="400" width="1200" />
     )
   },
   {
-    width: 60,
+    width: 58,
     content: (
       <img src="/assets/images/macbook-air.png" height="400" width="1200" />
     )
   },
   {
-    width: 40,
+    width: 39,
     content: (
       <img src="/assets/images/smarttvs.png" height="400" width="800" />
     )
   },
   {
-    width: 40,
+    width: 39,
     content: (
       <img src="/assets/images/car-audio.png" height="400" width="800" />
     )
   },
   {
-    width: 40,
+    width: 39,
     content: (
       <img src="/assets/images/galaxy-watch.png" height="400" width="800" />
     )
   },
   {
-    width: 40,
+    width: 39,
     content: (
       <img src="/assets/images/kitchen.png" height="400" width="800" />
     )
   },
   {
-    width: 40,
+    width: 39,
     content: (
       <img src="/assets/images/samsung-galaxy.png" height="400" width="800" />
     )
   },
   {
-    width: 40,
+    width: 39,
     content: (
       <img src="/assets/images/video-games.png" height="400" width="800" />
     )

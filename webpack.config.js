@@ -20,6 +20,7 @@ module.exports = {
       directory: `${__dirname}/docs`,
     },
     compress: true,
+    watchFiles: `${__dirname}/source`,
     port: 9000,
   },
   devtool: 'inline-source-map',
