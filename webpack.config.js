@@ -11,13 +11,13 @@ module.exports = {
     main: `${__dirname}/source/main.tsx`
   },
   output: {
-    path: `${__dirname}/public`,
+    path: `${__dirname}/docs`,
     filename: "[name].[chunkhash].js"
   },
 
   devServer: {
     static: {
-      directory: `${__dirname}/public`,
+      directory: `${__dirname}/docs`,
     },
     compress: true,
     port: 9000,

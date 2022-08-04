@@ -40,7 +40,7 @@ class _GameTimer {
     this.tickHandlers.forEach((handler) => {
       handler(this.tickCount);
     });
-    this.nextTick = setTimeout(() => this.tick(), getRandomInteger(500, 1000) - (this.multiplier * 200));
+    this.nextTick = setTimeout(() => this.tick(), getRandomInteger(800, 1600) - (this.multiplier * 200));
   }
 
 }

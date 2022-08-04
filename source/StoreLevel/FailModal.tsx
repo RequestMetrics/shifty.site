@@ -17,8 +17,8 @@ export class FailModal extends Component<ModalProps, any> {
             <p>
               <strong>Your Shopping Cart has been emptied.</strong>
             </p>
-            <button type="button" onClick={ () => StoreLevelController.doubleFail() }>Yes! Add Me To Your Newsletter</button>
-            <a href="javascript:void(0)" onClick={ () => StoreLevelController.clearFail() }>No, Go Back</a>
+            <button type="button" onTouchStart={ () => StoreLevelController.doubleFail() }>Yes! Add Me To Your Newsletter</button>
+            <a href="javascript:void(0)" onTouchStart={ () => StoreLevelController.clearFail() }>No, Go Back</a>
           </div>
       } isOpen={this.props.isOpen} xAdjust={this.props.xAdjust} yAdjust={this.props.yAdjust}/>
     );

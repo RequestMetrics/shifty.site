@@ -189,8 +189,7 @@ export class Widget extends Component<WidgetState, any> {
           "height": opts.height || "fit-content",
           "display": `${this.props.status === WidgetStatus.EMPTY ? "none" : "flex" }`
         }}
-        // onTouchStart={ (e) => StoreLevelController.click(this.props.index, e) }
-        onMouseDown={ (e) => StoreLevelController.click(this.props.index, e) }>
+        onTouchStart={ (e) => StoreLevelController.click(this.props.index, e) }>
         {opts.content}
       </div>
     )
