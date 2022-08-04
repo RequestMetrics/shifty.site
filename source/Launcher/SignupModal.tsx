@@ -51,6 +51,7 @@ export class SignupModal extends Component<ModalProps, any> {
     });
     setLocalStorage('rm_player_data', savedPlayerData);
 
+    this.props.onClose();
     GameController.start(level.STORE);
   }
 

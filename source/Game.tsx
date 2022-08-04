@@ -6,6 +6,7 @@ import "./Game.scss";
 import { GameTimer } from "./GameTimer";
 import { ShiftCounter } from "./ShiftCounter/ShiftCounter";
 import { Launcher } from "./Launcher/Launcher";
+import { CountdownModal } from "./CountdownModal";
 
 
 export class Game extends Component<any, GameState> {
@@ -32,6 +33,7 @@ export class Game extends Component<any, GameState> {
         <div class="level-wrap">
           { this.renderLevel() }
         </div>
+        <CountdownModal isOpen={!!this.state.countdown} number={this.state.countdown} />
       </div>
     );
   }

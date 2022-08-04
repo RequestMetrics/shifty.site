@@ -9,6 +9,7 @@ export enum level {
 }
 
 export interface GameState {
+  countdown: number,
   level: level,
   startTime: DateTime,
   endTime: DateTime
@@ -33,7 +34,10 @@ class _GameController {
     this.setState({ ...initialState });
   }
 
-  start(level: level) {
+  async start(level: level) {
+
+    await this.countdown(5);
+
     let now = DateTime.now();
     this.setState({
       level: level,
@@ -50,6 +54,22 @@ class _GameController {
     GameTimer.start();
   }
 
+  countdown(i : number) : Promise<void> {
+    return new Promise((res, rej) => {
+      this.setState({countdown: i});
+      if (i <= 0) {
+        res();
+      }
+      else {
+        setTimeout(() => {
+          this.countdown(i - 1).then(res);
+        }, 1_000);
+      }
+    });
+  }
+
 }
+
+
 
 export const GameController = new _GameController();
