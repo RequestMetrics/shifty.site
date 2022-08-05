@@ -1,6 +1,8 @@
 // Inaccessible, but needed so the game doesn't zoom.
 body, html {
   touch-action: none;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 * {

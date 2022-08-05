@@ -24,7 +24,7 @@ export class ShiftCounter extends Component<any, ShiftCounterState> {
     if (isSafari()) {
       GameTimer.onTick((tick) => {
         let cls = this.state.cls;
-        cls = cls + ((getRandomInteger(100, 200) + (tick*10)) / 1_000);
+        cls = cls + ((getRandomInteger(5000, 10000) + (tick)) / 10000);
         this.setState({ cls });
         GameController.cls = cls;
       })
