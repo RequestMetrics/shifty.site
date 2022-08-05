@@ -135,7 +135,7 @@ class _StoreLevelController {
       }
 
       state.isObjectiveVisible = false;
-      GameTimer.multiplier = state.clicks;
+      GameTimer.multiplier = state.cart;
 
     }
     else {

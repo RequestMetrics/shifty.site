@@ -3,6 +3,6 @@ export function getAccuracy(cart: number, clicks: number) {
     return `0.00%`;
   }
   else {
-    return `${(cart / clicks).toFixed(2)}%`;
+    return `${((cart / clicks) * 100).toFixed(0)}%`;
   }
 }

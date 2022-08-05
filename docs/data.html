@@ -1,8 +1,9 @@
 <html>
   <body>
     <main id="data">
-      <div>name,email,cart,clicks,timestamp</div>
+      <div><strong>name,email,cart,clicks,timestamp</strong></div>
     </main>
+    <button type="button" id="reset">Reset</button>
     <script>
       let el = document.getElementById('data');
       let playerData = JSON.parse(localStorage.getItem('rm_player_data'));
@@ -12,6 +13,12 @@
         div.innerText = `${player.name},${player.email},${player.cart},${player.clicks},${player.timestamp}`;
         el.appendChild(div);
       });
+
+      let resetButton = document.getElementById("reset");
+      resetButton.addEventListener("click", () => {
+        localStorage.clear();
+        location.reload();
+      })
     </script>
   </body>
 </html>
