@@ -32,7 +32,7 @@ export class Launcher extends Component<any, any> {
                 sizes, causing frustrating <strong>layout shifts</strong>.
               </p>
               <p>
-                They have awesome deals though deals, but only for 30 seconds!
+                They have awesome deals though, but only for 30 seconds!
                 How many can you add before time runs out?
               </p>
               <p>

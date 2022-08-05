@@ -10,9 +10,8 @@ export class FailModal extends Component<ModalProps, any> {
         <div class="newsletter-modal">
             <h2>Join Our Newsletter and Save!</h2>
             <h3>A Really Annoying Popup</h3>
-            <p>
-              Join our newsletter and we'll send you 10 emails every day about
-              crappy products that we can't sell.
+            <p style="margin:40px 0;">
+              Join our newsletter and we'll send you 10 emails every day!
             </p>
             <button type="button" onTouchStart={ () => StoreLevelController.doubleFail() }>Yes! Add Me To Your Newsletter</button>
             <a href="javascript:void(0)" onTouchStart={ () => StoreLevelController.clearFail() }>No, Go Back</a>

@@ -14,11 +14,11 @@ export class ExperienceModal extends Component<ModalProps, any> {
             >✕</button>
           <p>
             Tell us about your experience on our website! We promise to ignore
-            it entirely and continue with what we are doing.
+            it entirely.
           </p>
           <div class="ratings flex flex-column justify-center">
             <div class="title">
-              How likely are you to recommend GreatGets to a friend?
+              Would you to recommend GreatGets to a friend?
             </div>
             <div class="labels flex">
               <div>Not Likely</div>
