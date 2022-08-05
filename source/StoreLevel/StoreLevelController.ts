@@ -1,5 +1,6 @@
 import { GameController } from "../GameController";
 import { GameTimer } from "../GameTimer";
+import { sound, SoundController } from "../SoundController";
 import { getRandomInteger } from "../util/getRandomInteger";
 
 const WIDGET_COUNT = 10;
@@ -97,6 +98,7 @@ class _StoreLevelController {
   private setLoading(widget: WidgetState) {
     widget.status = WidgetStatus.LOADING;
     setTimeout(() => {
+      SoundController.play(sound.load);
       let state = this.getState();
       if (!state.isObjectiveVisible && widget.index >= 3) {
         this.setState({ isObjectiveVisible: true });
@@ -118,6 +120,8 @@ class _StoreLevelController {
     state.clicks = state.clicks + 1;
 
     if (widget && widget.status === WidgetStatus.OBJECTIVE) {
+      SoundController.play(sound.cart_add);
+
       widget.status = WidgetStatus.COMPLETE;
       this.updateWidgetState(widget);
 
@@ -135,6 +139,7 @@ class _StoreLevelController {
 
     }
     else {
+      SoundController.play(sound.click_fail);
       state.showFailModal = true;
       state.modalAdjustX = getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST);
       state.modalAdjustY = getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST);
@@ -144,10 +149,12 @@ class _StoreLevelController {
   }
 
   clearFail() {
+    SoundController.play(sound.close_fail);
     this.setState({ showFailModal: false });
   }
 
   doubleFail() {
+    SoundController.play(sound.click_fail);
     this.setState({
       showFailModal: true,
       modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
@@ -156,10 +163,12 @@ class _StoreLevelController {
   }
 
   clearExperience() {
+    SoundController.play(sound.close_fail);
     this.setState({ showExperienceModal: false });
   }
 
   clickRatings() {
+    SoundController.play(sound.click_fail);
     this.setState({
       showExperienceModal: false,
       showExperienceThanksModal: true,
@@ -169,6 +178,7 @@ class _StoreLevelController {
   }
 
   clearRatingsThanks() {
+    SoundController.play(sound.close_fail);
     this.setState({ showExperienceThanksModal: false });
   }
 

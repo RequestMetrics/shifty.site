@@ -8,6 +8,7 @@ import { ShiftCounter } from "./ShiftCounter/ShiftCounter";
 import { Launcher } from "./Launcher/Launcher";
 import { CountdownModal } from "./CountdownModal";
 import { FinishModal } from "./FinishModal";
+import { sound, SoundController } from "./SoundController";
 
 
 export class Game extends Component<any, GameState> {
@@ -27,6 +28,7 @@ export class Game extends Component<any, GameState> {
             <div class="controls">
               <Timer until={ this.state.endTime } />
               <ShiftCounter />
+              {/* <button onClick={() => SoundController.play(sound.cart_add) }>Sound</button> */}
               {/* <button onClick={() => GameTimer.pause() }>Pause</button> */}
             </div>
           </div>
@@ -34,6 +36,7 @@ export class Game extends Component<any, GameState> {
         <div class="level-wrap">
           { this.renderLevel() }
         </div>
+
         <CountdownModal isOpen={!!this.state.countdown} number={this.state.countdown} />
         <FinishModal isOpen={this.state.showFinishModal} cart={this.state.cart} clicks={this.state.clicks} cls={GameController.cls} />
       </div>

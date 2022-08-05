@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
 import { PLAYER_STORAGE_KEY } from "./Constants";
 import { GameTimer } from "./GameTimer";
+import { sound, SoundController } from "./SoundController";
 import { StoreLevelController } from "./StoreLevel/StoreLevelController";
 import { getLocalStorage, setLocalStorage } from "./util/xetLocalStorage";
 
@@ -30,6 +31,7 @@ class _GameController {
   getState: () => GameState;
   setState: (state: any) => void;
   cls: number = 0;
+  countdownWarning: boolean = false;
 
   init(getState: () => GameState, setState: (state: any) => void) {
 
@@ -52,6 +54,7 @@ class _GameController {
 
   async start(level: level) {
 
+    SoundController.play(sound.countdown);
     await this.countdown(GAME_COUNTDOWN);
 
     let now = DateTime.now();
@@ -62,6 +65,13 @@ class _GameController {
     });
     GameTimer.onTick(() => {
       let state = this.getState();
+
+      let diff = state.endTime.diff(DateTime.now()).shiftTo("seconds");
+      if (diff.seconds <= 5 && !this.countdownWarning) {
+        this.countdownWarning = true;
+        SoundController.play(sound.countdown);
+      }
+
       if (DateTime.now() > state.endTime) {
         this.stop();
       }
@@ -82,6 +92,13 @@ class _GameController {
       cart,
       clicks
     });
+
+    if (cart > 0) {
+      SoundController.play(sound.game_win);
+    }
+    else {
+      SoundController.play(sound.game_lose);
+    }
 
     let state = this.getState();
 
