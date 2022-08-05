@@ -3,14 +3,15 @@ import { GameController, level } from "./GameController";
 import { Modal, ModalProps } from "./Modal/Modal";
 
 export interface FinishModalProps extends ModalProps {
-  won: boolean
+  score: number,
+  cls: number
 }
 
 export class FinishModal extends Component<FinishModalProps, any> {
 
   render(): h.JSX.Element {
     let headline, img;
-    if (this.props.won) {
+    if (this.props.score > 0) {
       headline = "You Got the Deals!";
       img = "/assets/images/clap_500_apng.png";
     }
@@ -26,7 +27,8 @@ export class FinishModal extends Component<FinishModalProps, any> {
             <img src={img} alt="Sloth" height="500" width="500" />
           </div>
           <p>
-            This page shifted <strong style="color:red">{GameController.cls.toFixed(4)}</strong> while loading.<br/>
+            You got <strong>{this.props.score}</strong> deals
+            while the page shifted <strong style="color:red">{this.props.cls.toFixed(4)}</strong>.<br/>
             That's really frustrating.
           </p>
           <div class="cta flex flex-column align-center text-center">

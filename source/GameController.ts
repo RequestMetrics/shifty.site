@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
 import { GameTimer } from "./GameTimer";
+import { StoreLevelController } from "./StoreLevel/StoreLevelController";
 
 const GAME_LIMIT_SECONDS = 30;
 const GAME_COUNTDOWN = 5;
@@ -15,7 +16,7 @@ export interface GameState {
   startTime: DateTime,
   endTime: DateTime,
   showFinishModal: boolean
-  gameResult?: boolean
+  score: number
 }
 
 class _GameController {
@@ -54,19 +55,19 @@ class _GameController {
     GameTimer.onTick(() => {
       let state = this.getState();
       if (DateTime.now() > state.endTime) {
-        this.stop(false);
+        this.stop(StoreLevelController.getState().clicks);
       }
     })
     GameTimer.start();
   }
 
-  stop(won: boolean) {
+  stop(score: number) {
     GameTimer.stop();
     this.setState({
       startTime: DateTime.invalid("initial"),
       endTime: DateTime.invalid("initial"),
       showFinishModal: true,
-      gameResult: won
+      score
     });
   }
 

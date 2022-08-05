@@ -30,13 +30,16 @@ export class Launcher extends Component<any, any> {
                 sizes, causing frustrating <strong>layout shifts</strong>.
               </p>
               <p>
-                They are giving away 3 deals, but only for 30 seconds!
-                Can you add all 3 to your cart before the time runs out?
+                They have awesome deals though deals, but only for 30 seconds!
+                How many can you add before time runs out?
               </p>
               <p>
                 Watch out for the annoying popups!
               </p>
-              <button type="button" class="btn btn-blue" onClick={e => this.setState({isSignupModalOpen:true}) }>Start!</button>
+              <button type="button" class="btn btn-blue"
+                onClick={e => this.setState({isSignupModalOpen:true}) }
+                // onClick={e => GameController.start(level.STORE) }
+                >Start!</button>
             </div>
           </div>
 

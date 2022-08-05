@@ -35,7 +35,7 @@ export class Game extends Component<any, GameState> {
           { this.renderLevel() }
         </div>
         <CountdownModal isOpen={!!this.state.countdown} number={this.state.countdown} />
-        <FinishModal isOpen={this.state.showFinishModal} won={this.state.gameResult} />
+        <FinishModal isOpen={this.state.showFinishModal} score={this.state.score} cls={GameController.cls} />
       </div>
     );
   }

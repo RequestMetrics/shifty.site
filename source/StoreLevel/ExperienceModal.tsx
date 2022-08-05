@@ -69,9 +69,6 @@ export class ExperienceThanksModal extends Component<ModalProps, any> {
             We recorded your rating! We will continue to ask you over email every 2-3 days
             from now until eternity, regardless if you ever shop with us again.
           </p>
-          <p>
-            <strong>Your Shopping Cart has been cleared so we can charge you more.</strong>
-          </p>
         </div>
       } isOpen={this.props.isOpen} xAdjust={this.props.xAdjust} yAdjust={this.props.yAdjust}/>
     );

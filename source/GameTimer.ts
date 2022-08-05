@@ -29,13 +29,17 @@ class _GameTimer {
     return this.tickHandlers.length - 1;
   }
 
+  getTickDelay() : number {
+    return getRandomInteger(800, 1600) - (this.multiplier * 200);
+  }
+
   private tick() {
     if (!this.isRunning) { return; }
     this.tickHandlers.forEach((handler) => {
       if (!this.isRunning) { return; }
       handler(this.tickCount);
     });
-    this.nextTick = setTimeout(() => this.tick(), getRandomInteger(800, 1600) - (this.multiplier * 200));
+    this.nextTick = setTimeout(() => this.tick(), this.getTickDelay());
   }
 
 }

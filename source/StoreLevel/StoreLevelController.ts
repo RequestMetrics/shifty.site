@@ -3,9 +3,8 @@ import { GameTimer } from "../GameTimer";
 import { getRandomInteger } from "../util/getRandomInteger";
 
 const WIDGET_COUNT = 10;
-const CLICKS_TO_WIN = 3;
 const MODAL_X_ADJUST = 40;
-const MODAL_Y_ADJUST = 50;
+const MODAL_Y_ADJUST = 40;
 
 export interface StoreLevelState {
   clicks : number
@@ -70,8 +69,13 @@ class _StoreLevelController {
 
     let unloadedWidgets = state.widgets.filter((w) => w.status === WidgetStatus.EMPTY);
     if (unloadedWidgets.length) {
-      this.setLoading(unloadedWidgets[0]);
-      this.updateWidgetState(unloadedWidgets[0]);
+      let loaded = 0;
+      unloadedWidgets.forEach((w) => {
+        if (loaded > 3) { return; }
+        this.setLoading(w);
+        this.updateWidgetState(w);
+        loaded++;
+      });
       return;
     }
 
@@ -100,7 +104,7 @@ class _StoreLevelController {
         widget.status = WidgetStatus.CONTENT;
       }
       this.updateWidgetState(widget);
-    }, getRandomInteger(600, 3200))
+    }, GameTimer.getTickDelay())
   }
 
   click(index: number, event: Event) {
@@ -122,18 +126,11 @@ class _StoreLevelController {
         state.modalAdjustY = getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST);
       }
 
-      if (state.clicks >= CLICKS_TO_WIN) {
-        GameController.stop(true);
-      }
-      else {
-        state.isObjectiveVisible = false;
-      }
-
+      state.isObjectiveVisible = false;
       GameTimer.multiplier = state.clicks;
       this.setState(state);
     }
     else {
-      this.reset();
       this.setState({
         showFailModal: true,
         modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
@@ -159,7 +156,6 @@ class _StoreLevelController {
   }
 
   clickRatings() {
-    this.reset();
     this.setState({
       showExperienceModal: false,
       showExperienceThanksModal: true,
@@ -172,19 +168,6 @@ class _StoreLevelController {
     this.setState({ showExperienceThanksModal: false });
   }
 
-  private reset() {
-    let state = this.getState()
-    this.setState({
-      clicks: 0,
-      widgets: state.widgets.map((w) => {
-        if (w.status === WidgetStatus.COMPLETE) {
-          w.status = WidgetStatus.LOADING;
-        }
-        return w;
-      })
-    });
-    GameTimer.multiplier = 0;
-  }
 
   private updateWidgetState(widget : WidgetState) {
     let state = this.getState();
