@@ -12,8 +12,16 @@ export enum sound {
 
 class _SoundController {
 
+  private sounds = {};
+
+  constructor() {
+    Object.keys(sound).forEach((key) => {
+      this.sounds[sound[key]] = new Audio(sound[key]);
+    })
+  }
+
   play(sound: sound) {
-    new Audio(sound).play()
+    this.sounds[sound].play();
   }
 
 }
