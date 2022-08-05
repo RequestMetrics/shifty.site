@@ -16,12 +16,26 @@ class _SoundController {
 
   constructor() {
     Object.keys(sound).forEach((key) => {
-      this.sounds[sound[key]] = new Audio(sound[key]);
+      let audio = new Audio(sound[key]);
+      audio.preload = "auto";
+      this.sounds[sound[key]] = audio;
     })
   }
 
   play(sound: sound) {
-    this.sounds[sound].play();
+    let s = this.sounds[sound];
+    if (!s) { return; }
+
+    if (!s._playPromise) {
+      s._playPromise = s.play();
+    }
+    else {
+      s._playPromise.then(() => {
+        s.pause();
+        s.currentTime = 0;
+        s.play();
+      })
+    }
   }
 
 }
