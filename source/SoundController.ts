@@ -12,30 +12,34 @@ export enum sound {
 
 class _SoundController {
 
+  private context = new AudioContext();
   private sounds = {};
 
   constructor() {
+
     Object.keys(sound).forEach((key) => {
-      let audio = new Audio(sound[key]);
-      audio.preload = "auto";
-      this.sounds[sound[key]] = audio;
-    })
+      this.getAudioData(sound[key])
+        .then((audioBuffer) => {
+          this.sounds[sound[key]] = audioBuffer;
+        })
+    });
+
   }
 
   play(sound: sound) {
-    let s = this.sounds[sound];
-    if (!s) { return; }
 
-    if (!s._playPromise) {
-      s._playPromise = s.play();
-    }
-    else {
-      s._playPromise.then(() => {
-        s.pause();
-        s.currentTime = 0;
-        s.play();
-      })
-    }
+    let source = this.context.createBufferSource();
+    source.buffer = this.sounds[sound];
+    source.connect(this.context.destination);
+    source.start(0);
+  }
+
+  getAudioData(url:string) : Promise<AudioBuffer> {
+    let context = new AudioContext();
+
+    return fetch(url)
+      .then((response) => response.arrayBuffer())
+      .then((buffer) => context.decodeAudioData(buffer));
   }
 
 }
