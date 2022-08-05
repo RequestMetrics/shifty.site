@@ -1,6 +1,8 @@
 import { DateTime } from "luxon";
+import { PLAYER_STORAGE_KEY } from "./Constants";
 import { GameTimer } from "./GameTimer";
 import { StoreLevelController } from "./StoreLevel/StoreLevelController";
+import { getLocalStorage, setLocalStorage } from "./util/xetLocalStorage";
 
 const GAME_LIMIT_SECONDS = 30;
 const GAME_COUNTDOWN = 5;
@@ -16,7 +18,11 @@ export interface GameState {
   startTime: DateTime,
   endTime: DateTime,
   showFinishModal: boolean
-  score: number
+  cart: number,
+  clicks: number,
+  name: string,
+  email: string,
+  timestamp: DateTime
 }
 
 class _GameController {
@@ -31,6 +37,8 @@ class _GameController {
     this.setState = setState;
 
     this.setState({
+      cart: 0,
+      clicks: 0,
       level: level.NO_LEVEL,
       startTime: DateTime.invalid("initial"),
       endTime: DateTime.invalid("initial"),
@@ -55,20 +63,37 @@ class _GameController {
     GameTimer.onTick(() => {
       let state = this.getState();
       if (DateTime.now() > state.endTime) {
-        this.stop(StoreLevelController.getState().clicks);
+        this.stop();
       }
     })
     GameTimer.start();
   }
 
-  stop(score: number) {
+  stop() {
     GameTimer.stop();
+
+    let cart = StoreLevelController.getState().cart;
+    let clicks = StoreLevelController.getState().clicks;
+
     this.setState({
       startTime: DateTime.invalid("initial"),
       endTime: DateTime.invalid("initial"),
       showFinishModal: true,
-      score
+      cart,
+      clicks
     });
+
+    let state = this.getState();
+
+    let savedPlayerData = getLocalStorage(PLAYER_STORAGE_KEY) || [];
+    savedPlayerData.push({
+      name: state.name,
+      email: state.email,
+      cart: cart,
+      clicks: clicks,
+      timestamp: state.timestamp
+    });
+    setLocalStorage(PLAYER_STORAGE_KEY, savedPlayerData);
   }
 
   private countdown(i : number) : Promise<void> {

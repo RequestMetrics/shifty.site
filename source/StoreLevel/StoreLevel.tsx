@@ -20,7 +20,7 @@ export class StoreLevel extends Component<any, StoreLevelState> {
             <img src="/assets/images/logo.png" width="136" height="80" />
           </div>
           <div class="cart">
-            <span class="cart-count">{ this.state.clicks }</span>
+            <span class="cart-count">{ this.state.cart }</span>
             <img src="/assets/images/cart.svg"></img>
             <span class="cart-label">Cart</span>
           </div>

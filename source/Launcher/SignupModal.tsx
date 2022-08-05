@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 import { h, Component } from "preact";
 import { GameController, level } from "../GameController";
 import { Modal, ModalProps } from "../Modal/Modal";
@@ -43,13 +44,11 @@ export class SignupModal extends Component<ModalProps, any> {
     event.preventDefault();
     let form = event.target as HTMLFormElement;
 
-    let savedPlayerData = getLocalStorage('rm_player_data') || [];
-    savedPlayerData.push({
+    GameController.setState({
       name: form.elements['name'].value,
       email: form.elements['email'].value,
-      timestamp: new Date().toISOString()
+      timestamp:  DateTime.now()
     });
-    setLocalStorage('rm_player_data', savedPlayerData);
 
     this.props.onClose();
     GameController.start(level.STORE);

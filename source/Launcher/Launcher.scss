@@ -34,15 +34,11 @@
       margin-top: 10px;
     }
 
-    button {
+    .controls {
       margin: 20px auto;
-      padding: 10px 40px;
-      font-size: 1.3em;
-      display: block;
-      border: none;
-      border-radius: 10px;
-      background-color: rgb(55, 102, 196);
-      color: white;
+      .btn+.btn {
+        margin-left: 10px;
+      }
     }
   }
 
@@ -103,6 +99,33 @@
         }
       }
 
+    }
+  }
+
+  .leaderboard-modal {
+    h2 {
+      font-size: 1.8em;
+    }
+
+    .scores {
+      border-collapse: collapse;
+      font-size: 1.2em;
+      tr.header {
+        th {
+          text-align: left;
+          padding-bottom: 5px;
+        }
+      }
+
+      tr.player {
+        border-bottom: 2px solid #aaa;
+        td {
+          padding: 5px 0;
+        }
+        &:nth-child(even) {
+          background-color: #efefef;
+        }
+      }
     }
   }
 }

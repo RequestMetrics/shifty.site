@@ -1,9 +1,11 @@
 import { h, Component } from "preact";
 import { GameController, level } from "./GameController";
 import { Modal, ModalProps } from "./Modal/Modal";
+import { getAccuracy } from "./util/getAccuracy";
 
 export interface FinishModalProps extends ModalProps {
-  score: number,
+  cart: number,
+  clicks: number
   cls: number
 }
 
@@ -11,7 +13,7 @@ export class FinishModal extends Component<FinishModalProps, any> {
 
   render(): h.JSX.Element {
     let headline, img;
-    if (this.props.score > 0) {
+    if (this.props.cart > 0) {
       headline = "You Got the Deals!";
       img = "/assets/images/clap_500_apng.png";
     }
@@ -27,8 +29,8 @@ export class FinishModal extends Component<FinishModalProps, any> {
             <img src={img} alt="Sloth" height="500" width="500" />
           </div>
           <p>
-            You got <strong>{this.props.score}</strong> deals
-            while the page shifted <strong style="color:red">{this.props.cls.toFixed(4)}</strong>.<br/>
+            You got <strong>{this.props.cart}</strong> deals with <strong>{this.props.clicks}</strong> clicks ({getAccuracy(this.props.cart, this.props.clicks)}).<br/>
+            The page shifted <strong style="color:red">{this.props.cls.toFixed(4)}</strong> while loading.<br/>
             That's really frustrating.
           </p>
           <div class="cta flex flex-column align-center text-center">

@@ -1,6 +1,7 @@
 import { h, Component } from "preact";
 import { GameController, level } from "../GameController";
 import "./Launcher.scss";
+import { LeaderboardModal } from "./LeaderboardModal";
 import { SignupModal } from "./SignupModal";
 
 export class Launcher extends Component<any, any> {
@@ -9,6 +10,7 @@ export class Launcher extends Component<any, any> {
     super();
 
     this.state ={
+      isLeaderboardModalOpen: false,
       isSignupModalOpen: false
     };
   }
@@ -36,10 +38,13 @@ export class Launcher extends Component<any, any> {
               <p>
                 Watch out for the annoying popups!
               </p>
-              <button type="button" class="btn btn-blue"
-                onClick={e => this.setState({isSignupModalOpen:true}) }
-                // onClick={e => GameController.start(level.STORE) }
-                >Start!</button>
+              <div class="controls flex justify-center">
+                <button type="button" class="btn btn-blue"
+                  onClick={e => this.setState({isSignupModalOpen:true}) }
+                  // onClick={e => GameController.start(level.STORE) }
+                  >Start!</button>
+                <button type="button" class="btn btn-grey" onClick={() => this.setState({isLeaderboardModalOpen:true})}>Scores</button>
+              </div>
             </div>
           </div>
 
@@ -57,6 +62,7 @@ export class Launcher extends Component<any, any> {
         </div>
 
         <SignupModal isOpen={this.state.isSignupModalOpen} onClose={() => this.setState({isSignupModalOpen:false})} />
+        <LeaderboardModal isOpen={this.state.isLeaderboardModalOpen} onClose={() => this.setState({isLeaderboardModalOpen:false})} />
 
       </div>
     )

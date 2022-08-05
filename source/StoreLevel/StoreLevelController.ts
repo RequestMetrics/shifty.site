@@ -7,6 +7,7 @@ const MODAL_X_ADJUST = 40;
 const MODAL_Y_ADJUST = 40;
 
 export interface StoreLevelState {
+  cart: number
   clicks : number
   hasShownExperienceModal: boolean
   isObjectiveVisible : boolean
@@ -44,6 +45,7 @@ class _StoreLevelController {
     GameTimer.onTick(() => this.onTick());
 
     let initialState = {
+      cart: 0,
       clicks: 0,
       hasShownExperienceModal: false,
       isObjectiveVisible: false,
@@ -113,11 +115,13 @@ class _StoreLevelController {
     let state = this.getState();
     let widget = state.widgets[index];
 
+    state.clicks = state.clicks + 1;
+
     if (widget && widget.status === WidgetStatus.OBJECTIVE) {
       widget.status = WidgetStatus.COMPLETE;
       this.updateWidgetState(widget);
 
-      state.clicks = state.clicks + 1;
+      state.cart = state.cart + 1;
 
       if (!state.hasShownExperienceModal) {
         state.hasShownExperienceModal = true;
@@ -128,15 +132,15 @@ class _StoreLevelController {
 
       state.isObjectiveVisible = false;
       GameTimer.multiplier = state.clicks;
-      this.setState(state);
+
     }
     else {
-      this.setState({
-        showFailModal: true,
-        modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
-        modalAdjustY: getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST)
-      });
+      state.showFailModal = true;
+      state.modalAdjustX = getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST);
+      state.modalAdjustY = getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST);
     }
+
+    this.setState(state);
   }
 
   clearFail() {
