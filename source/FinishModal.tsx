@@ -38,7 +38,9 @@ export class FinishModal extends Component<FinishModalProps, any> {
               Discover how your website shifts and your real-user experience with <strong>Request Metrics</strong>.
             </p>
             <div class="logo">
-              <img src="/assets/images/request_metrics_logo.svg" alt="Request Metrics" width="300" height="102" />
+              <a href="https://requestmetrics.com/">
+                <img src="/assets/images/request_metrics_logo.svg" alt="Request Metrics" width="300" height="102" />
+              </a>
             </div>
           </div>
 

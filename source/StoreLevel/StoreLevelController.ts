@@ -126,17 +126,19 @@ class _StoreLevelController {
       this.updateWidgetState(widget);
 
       state.cart = state.cart + 1;
-
-      if (!state.hasShownExperienceModal) {
-        state.hasShownExperienceModal = true;
-        state.showExperienceModal = true;
-        state.modalAdjustX = getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST);
-        state.modalAdjustY = getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST);
-      }
-
       state.isObjectiveVisible = false;
       GameTimer.multiplier = state.cart;
 
+      if (!state.hasShownExperienceModal) {
+        state.hasShownExperienceModal = true;
+        setTimeout(() => {
+          this.setState({
+            showExperienceModal: true,
+            modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
+            modalAdjustY: getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST)
+          });
+        }, GameTimer.getTickDelay())
+      }
     }
     else {
       SoundController.play(sound.click_fail);

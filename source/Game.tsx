@@ -24,7 +24,6 @@ export class Game extends Component<any, GameState> {
       <div class="game">
         <header>
           <div class="header-box">
-            <h1>Shifty.site</h1>
             <div class="controls">
               <Timer until={ this.state.endTime } />
               <ShiftCounter />
