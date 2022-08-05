@@ -123,7 +123,7 @@ class _StoreLevelController {
       }
 
       if (state.clicks >= CLICKS_TO_WIN) {
-        alert('YOU WON!');
+        GameController.stop(true);
       }
       else {
         state.isObjectiveVisible = false;

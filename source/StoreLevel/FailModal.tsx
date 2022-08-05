@@ -15,7 +15,7 @@ export class FailModal extends Component<ModalProps, any> {
               crappy products that we can't sell.
             </p>
             <p>
-              <strong>Your Shopping Cart has been emptied.</strong>
+              <strong>Your Shopping Cart has been emptied so we can charge you more.</strong>
             </p>
             <button type="button" onTouchStart={ () => StoreLevelController.doubleFail() }>Yes! Add Me To Your Newsletter</button>
             <a href="javascript:void(0)" onTouchStart={ () => StoreLevelController.clearFail() }>No, Go Back</a>

@@ -33,12 +33,15 @@ export class Launcher extends Component<any, any> {
                 They are giving away 3 deals, but only for 30 seconds!
                 Can you add all 3 to your cart before the time runs out?
               </p>
+              <p>
+                Watch out for the annoying popups!
+              </p>
               <button type="button" class="btn btn-blue" onClick={e => this.setState({isSignupModalOpen:true}) }>Start!</button>
             </div>
           </div>
 
           <div class="rm-logo flex flex-column align-center">
-            <h4>Developed By</h4>
+            <h4 style="font-weight: normal">Developed By</h4>
             <a href="https://requestmetrics.com/">
               <img src="/assets/images/request_metrics_logo.svg" alt="Request Metrics" width="300" height="102" />
             </a>

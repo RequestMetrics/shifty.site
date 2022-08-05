@@ -1,10 +1,4 @@
-import { DateTime } from "luxon";
 import { getRandomInteger } from "./util/getRandomInteger";
-
-enum GameTimerStatus {
-  STOPPED,
-  STARTED
-}
 
 class _GameTimer {
 
@@ -38,6 +32,7 @@ class _GameTimer {
   private tick() {
     if (!this.isRunning) { return; }
     this.tickHandlers.forEach((handler) => {
+      if (!this.isRunning) { return; }
       handler(this.tickCount);
     });
     this.nextTick = setTimeout(() => this.tick(), getRandomInteger(800, 1600) - (this.multiplier * 200));

@@ -70,7 +70,7 @@ export class ExperienceThanksModal extends Component<ModalProps, any> {
             from now until eternity, regardless if you ever shop with us again.
           </p>
           <p>
-            <strong>Your Shopping Cart has been cleared.</strong>
+            <strong>Your Shopping Cart has been cleared so we can charge you more.</strong>
           </p>
         </div>
       } isOpen={this.props.isOpen} xAdjust={this.props.xAdjust} yAdjust={this.props.yAdjust}/>

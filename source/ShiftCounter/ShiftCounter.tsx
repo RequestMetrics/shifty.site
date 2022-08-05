@@ -1,4 +1,5 @@
 import { h, Component } from "preact";
+import { GameController } from "../GameController";
 import { GameTimer } from "../GameTimer";
 import { getRandomInteger } from "../util/getRandomInteger";
 import { isSafari } from "../util/isSafari";
@@ -25,6 +26,7 @@ export class ShiftCounter extends Component<any, ShiftCounterState> {
         let cls = this.state.cls;
         cls = cls + ((getRandomInteger(100, 200) + (tick*10)) / 1_000);
         this.setState({ cls });
+        GameController.cls = cls;
       })
     }
     else {
@@ -34,6 +36,7 @@ export class ShiftCounter extends Component<any, ShiftCounterState> {
           return cls + entry.value;
         }, this.state.cls);
         this.setState({ cls });
+        GameController.cls = cls;
       });
       this.observer.observe({ type: "layout-shift", buffered: false });
     }

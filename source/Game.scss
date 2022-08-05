@@ -47,6 +47,58 @@
       margin: 40px;
     }
   }
+
+  .finish-modal {
+    font-family: 'Helvetica', sans-serif;
+
+    h2 {
+      font-size: 1.8em;
+    }
+
+    .illustration {
+      width: 280px;
+      margin-top: -40px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    p {
+      font-size: 1.1em;
+    }
+
+    .cta {
+      padding: 20px;
+      background: #fafbfe;
+      margin: 20px -19px;
+      border-top: 2px solid #DDE4EB;
+      border-bottom: 2px solid #DDE4EB;
+
+      p {
+        font-size: 1.2em;
+      }
+
+      .logo {
+        width: 240px;
+        margin-top: 10px;
+        img {
+          width: 100%;
+          height: auto;
+          background-color: white;
+        }
+      }
+    }
+
+
+    p+p {
+      margin-top: 10px;
+    }
+
+    .btn+.btn {
+      margin-left: 10px;
+    }
+  }
 }
 
 footer {
