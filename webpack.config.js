@@ -23,7 +23,7 @@ module.exports = {
     watchFiles: `${__dirname}/source`,
     port: 9000,
   },
-  devtool: 'inline-source-map',
+  devtool: process.env.NODE_ENV ? false : 'inline-source-map',
 
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
