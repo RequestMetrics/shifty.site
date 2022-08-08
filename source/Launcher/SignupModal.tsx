@@ -18,7 +18,9 @@ export class SignupModal extends Component<ModalProps, any> {
 
           <form class="flex flex-column" onSubmit={(e) => this.saveForm(e)} >
 
-            <label>
+            <h3 class="text-center" style="margin:20px 0 ">Have we scanned your badge?</h3>
+
+            {/* <label>
               <span>Your Name</span>
               <input type="text" name="name" value={this.state.formName} required placeholder="Jane Doe" />
             </label>
@@ -26,7 +28,7 @@ export class SignupModal extends Component<ModalProps, any> {
             <label>
               <span>Your Email</span>
               <input type="email" name="email" value={this.state.formName} required placeholder="jane@example.com" />
-            </label>
+            </label> */}
 
             <div class="controls flex justify-center">
               <button type="submit" class="btn btn-blue">Start</button>
@@ -44,11 +46,11 @@ export class SignupModal extends Component<ModalProps, any> {
     event.preventDefault();
     let form = event.target as HTMLFormElement;
 
-    GameController.setState({
-      name: form.elements['name'].value,
-      email: form.elements['email'].value,
-      timestamp:  DateTime.now()
-    });
+    // GameController.setState({
+    //   name: form.elements['name'].value,
+    //   email: form.elements['email'].value,
+    //   timestamp:  DateTime.now()
+    // });
 
     this.props.onClose();
     GameController.start(level.STORE);

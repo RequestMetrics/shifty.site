@@ -43,7 +43,7 @@ export class Launcher extends Component<any, any> {
                   onClick={e => this.setState({isSignupModalOpen:true}) }
                   // onClick={e => GameController.start(level.STORE) }
                   >Start!</button>
-                <button type="button" class="btn btn-grey" onClick={() => this.setState({isLeaderboardModalOpen:true})}>Scores</button>
+                {/* <button type="button" class="btn btn-grey" onClick={() => this.setState({isLeaderboardModalOpen:true})}>Scores</button> */}
               </div>
             </div>
           </div>
