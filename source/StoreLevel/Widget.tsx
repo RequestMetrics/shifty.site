@@ -168,7 +168,7 @@ export class Widget extends Component<WidgetState, any> {
       return this.renderWidget({
         width: 20,
         content: (
-          <img src="/assets/images/deal-of-the-day.png" height="600" width="600" />
+          <img src="/assets/images/deal-of-the-day.png" height="600" width="600" draggable={false} />
         )
       });
     }
@@ -176,7 +176,7 @@ export class Widget extends Component<WidgetState, any> {
       return this.renderWidget({
         width: 20,
         content: (
-          <img src="/assets/images/deal-of-the-day-done.png" height="600" width="600" />
+          <img src="/assets/images/deal-of-the-day-done.png" height="600" width="600" draggable={false} />
         )
       });
     }
@@ -191,9 +191,9 @@ export class Widget extends Component<WidgetState, any> {
         style={{
           "background-color": `${opts.color || 'white'}`,
           "flex": `1 0 ${opts.width}%`,
-          // "height": opts.height || "fit-content",
           "display": `${this.props.status === WidgetStatus.EMPTY ? "none" : "flex" }`
         }}
+        onMouseDown={ (e) => StoreLevelController.click(this.props.index, e) }
         onTouchStart={ (e) => StoreLevelController.click(this.props.index, e) }>
         {opts.content}
       </div>

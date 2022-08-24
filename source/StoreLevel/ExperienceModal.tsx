@@ -10,7 +10,8 @@ export class ExperienceModal extends Component<ModalProps, any> {
         <div class="experience-modal flex flex-column">
           <h2>Help Improve Our Website</h2>
           <button class="close"
-            onTouchStart={ () => StoreLevelController.clearExperience() }
+            onMouseDown={ (e) => StoreLevelController.clearExperience(e) }
+            onTouchStart={ (e) => StoreLevelController.clearExperience(e) }
             >✕</button>
           <p>
             Tell us about your experience on our website! We promise to ignore
@@ -25,23 +26,23 @@ export class ExperienceModal extends Component<ModalProps, any> {
               <div>Very Likely</div>
             </div>
             <div class="controls flex">
-              <label onTouchStart={ () => StoreLevelController.clickRatings() }>
+              <label onMouseDown={ (e) => StoreLevelController.clickRatings(e) } onTouchStart={ (e) => StoreLevelController.clickRatings(e) }>
                 <input type="radio"></input>
                 <span>1</span>
               </label>
-              <label onTouchStart={ () => StoreLevelController.clickRatings() }>
+              <label onMouseDown={ (e) => StoreLevelController.clickRatings(e) } onTouchStart={ (e) => StoreLevelController.clickRatings(e) }>
                 <input type="radio"></input>
                 <span>2</span>
               </label>
-              <label onTouchStart={ () => StoreLevelController.clickRatings() }>
+              <label onMouseDown={ (e) => StoreLevelController.clickRatings(e) } onTouchStart={ (e) => StoreLevelController.clickRatings(e) }>
                 <input type="radio"></input>
                 <span>3</span>
               </label>
-              <label onTouchStart={ () => StoreLevelController.clickRatings() }>
+              <label onMouseDown={ (e) => StoreLevelController.clickRatings(e) } onTouchStart={ (e) => StoreLevelController.clickRatings(e) }>
                 <input type="radio"></input>
                 <span>4</span>
               </label>
-              <label onTouchStart={ () => StoreLevelController.clickRatings() }>
+              <label onMouseDown={ (e) => StoreLevelController.clickRatings(e) } onTouchStart={ (e) => StoreLevelController.clickRatings(e) }>
                 <input type="radio"></input>
                 <span>5</span>
               </label>
@@ -63,7 +64,8 @@ export class ExperienceThanksModal extends Component<ModalProps, any> {
           <h2>Thanks for your Rating!</h2>
           <h3>Expect a lot of survey emails from us!</h3>
           <button class="close"
-            onTouchStart={ () => StoreLevelController.clearRatingsThanks() }
+            onTouchStart={ (e) => StoreLevelController.clearRatingsThanks(e) }
+            onMouseDown={ (e) => StoreLevelController.clearRatingsThanks(e) }
             >✕</button>
           <p style={{flex: "1 1 auto"}}>
             We recorded your rating! We will continue to ask you over email every 2-3 days

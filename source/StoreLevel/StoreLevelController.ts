@@ -98,6 +98,8 @@ class _StoreLevelController {
   private setLoading(widget: WidgetState) {
     widget.status = WidgetStatus.LOADING;
     setTimeout(() => {
+      if (!GameTimer.isRunning) { return; }
+
       SoundController.play(sound.load);
       let state = this.getState();
       if (!state.isObjectiveVisible && widget.index >= 3) {
@@ -113,6 +115,7 @@ class _StoreLevelController {
 
   click(index: number, event: Event) {
     event.stopPropagation();
+    event.preventDefault();
 
     let state = this.getState();
     let widget = state.widgets[index];
@@ -144,12 +147,14 @@ class _StoreLevelController {
     this.setState(state);
   }
 
-  clearFail() {
+  clearFail(event: Event) {
+    event.preventDefault();
     SoundController.play(sound.close_fail);
     this.setState({ showFailModal: false });
   }
 
-  doubleFail() {
+  doubleFail(event: Event) {
+    event.preventDefault();
     SoundController.play(sound.click_fail);
     this.setState({
       showFailModal: true,
@@ -158,12 +163,14 @@ class _StoreLevelController {
     });
   }
 
-  clearExperience() {
+  clearExperience(event: Event) {
+    event.preventDefault();
     SoundController.play(sound.close_fail);
     this.setState({ showExperienceModal: false });
   }
 
-  clickRatings() {
+  clickRatings(event: Event) {
+    event.preventDefault();
     SoundController.play(sound.click_fail);
     this.setState({
       showExperienceModal: false,
@@ -173,7 +180,8 @@ class _StoreLevelController {
     });
   }
 
-  clearRatingsThanks() {
+  clearRatingsThanks(event: Event) {
+    event.preventDefault();
     SoundController.play(sound.close_fail);
     this.setState({ showExperienceThanksModal: false });
   }

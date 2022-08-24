@@ -5,7 +5,7 @@ class _GameTimer {
   private tickCount: number = 0;
   private tickHandlers: Array<(tick: number) => void> = [];
   private nextTick: NodeJS.Timer;
-  private isRunning: boolean = false;
+  public isRunning: boolean = false;
 
   public multiplier: number = 0;
 

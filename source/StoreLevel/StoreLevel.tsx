@@ -25,7 +25,7 @@ export class StoreLevel extends Component<any, StoreLevelState> {
             <span class="cart-label">Cart</span>
           </div>
         </header>
-        <div class="widget-grid" onTouchStart={(e) => StoreLevelController.click(-1, e) }>
+        <div class="widget-grid" onMouseDown={(e) => StoreLevelController.click(-1, e) } onTouchStart={(e) => StoreLevelController.click(-1, e) }>
           {this.state.widgets.map(widgetState => <Widget {...widgetState} />)}
         </div>
         <FailModal isOpen={this.state.showFailModal} xAdjust={this.state.modalAdjustX} yAdjust={this.state.modalAdjustY} />
