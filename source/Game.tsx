@@ -28,7 +28,7 @@ export class Game extends Component<any, GameState> {
               <Timer until={ this.state.endTime } />
               <ShiftCounter />
               {/* <button onClick={() => SoundController.play(sound.cart_add) }>Sound</button> */}
-              {/* <button onClick={() => GameTimer.pause() }>Pause</button> */}
+              <button onClick={() => GameTimer.pause() }>Pause</button>
             </div>
           </div>
         </header>

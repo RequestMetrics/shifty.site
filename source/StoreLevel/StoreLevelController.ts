@@ -131,13 +131,7 @@ class _StoreLevelController {
 
       if (!state.hasShownExperienceModal) {
         state.hasShownExperienceModal = true;
-        setTimeout(() => {
-          this.setState({
-            showExperienceModal: true,
-            modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
-            modalAdjustY: getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST)
-          });
-        }, GameTimer.getTickDelay())
+        this.setExperienceModal();
       }
     }
     else {
@@ -195,6 +189,21 @@ class _StoreLevelController {
         return w;
       })
     });
+  }
+
+  private setExperienceModal() {
+    setTimeout(() => {
+      let state = this.getState();
+      if (state.showFailModal) { // skip if the fail modal is already showing
+        return this.setExperienceModal();
+      }
+
+      this.setState({
+        showExperienceModal: true,
+        modalAdjustX: getRandomInteger(-MODAL_X_ADJUST,MODAL_X_ADJUST),
+        modalAdjustY: getRandomInteger(-MODAL_Y_ADJUST,MODAL_Y_ADJUST)
+      });
+    }, GameTimer.getTickDelay())
   }
 
 }

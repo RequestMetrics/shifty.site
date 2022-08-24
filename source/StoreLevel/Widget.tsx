@@ -17,18 +17,21 @@ const CONTENT = [
   // },
   {
     width: 58,
+    color: "#2964db",
     content: (
       <img src="/assets/images/top-deals.png" height="400" width="1200" />
     )
   },
   {
     width: 58,
+    color: "#293038",
     content: (
       <img src="/assets/images/black-friday.png" height="400" width="1200" />
     )
   },
   {
     width: 58,
+    color: "#f5f5f7",
     content: (
       <img src="/assets/images/macbook-air.png" height="400" width="1200" />
     )
@@ -135,7 +138,8 @@ type RenderOptions = {
   width: number,
   grow?: boolean,
   height?: string,
-  content: h.JSX.Element
+  content: h.JSX.Element,
+  color?: string
 }
 
 export class Widget extends Component<WidgetState, any> {
@@ -185,8 +189,9 @@ export class Widget extends Component<WidgetState, any> {
     return (
       <div class="widget"
         style={{
-          "flex": `${opts.grow ? '1' : '0'} 0 ${opts.width}%`,
-          "height": opts.height || "fit-content",
+          "background-color": `${opts.color || 'white'}`,
+          "flex": `1 0 ${opts.width}%`,
+          // "height": opts.height || "fit-content",
           "display": `${this.props.status === WidgetStatus.EMPTY ? "none" : "flex" }`
         }}
         onTouchStart={ (e) => StoreLevelController.click(this.props.index, e) }>
