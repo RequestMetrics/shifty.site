@@ -4,7 +4,7 @@ class _GameTimer {
 
   private tickCount: number = 0;
   private tickHandlers: Array<(tick: number) => void> = [];
-  private nextTick: NodeJS.Timer;
+  private nextTick: NodeJS.Timeout;
   public isRunning: boolean = false;
 
   public multiplier: number = 0;
@@ -29,7 +29,7 @@ class _GameTimer {
     return this.tickHandlers.length - 1;
   }
 
-  getTickDelay() : number {
+  getTickDelay(): number {
     let randomTime = getRandomInteger(1000, 3000) - (this.multiplier * 300);
     return Math.max(300, randomTime);
   }

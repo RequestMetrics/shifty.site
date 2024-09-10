@@ -3,7 +3,7 @@ import { h, Component } from "preact";
 import "./Timer.scss";
 
 export interface TimerProps {
-  until : DateTime
+  until: DateTime
 }
 
 export interface TimerState {
@@ -13,7 +13,7 @@ export interface TimerState {
 
 export class Timer extends Component<TimerProps, TimerState> {
 
-  private timer : NodeJS.Timer;
+  private timer: NodeJS.Timeout;
 
   constructor() {
     super();
@@ -38,14 +38,14 @@ export class Timer extends Component<TimerProps, TimerState> {
     clearInterval(this.timer);
   }
 
-  render() : h.JSX.Element {
+  render(): h.JSX.Element {
     return (
       <div class="timer">
         <div class="label">Time</div>
-        <div class={`value ${this.state.seconds <= 5 && this.state.milliseconds+this.state.seconds !== 0 ? "danger" : "" }`}>
-          { this.state.seconds.toString().padStart(2, '0') }
+        <div class={`value ${this.state.seconds <= 5 && this.state.milliseconds + this.state.seconds !== 0 ? "danger" : ""}`}>
+          {this.state.seconds.toString().padStart(2, '0')}
           <span class="marker">.</span>
-          { this.state.milliseconds.toString().padEnd(3, '0') }
+          {this.state.milliseconds.toString().padEnd(3, '0')}
         </div>
       </div>
     )
