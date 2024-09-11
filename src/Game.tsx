@@ -1,16 +1,17 @@
-import { Component } from "preact";
-import { GameController, GameState, level } from "../controllers/GameController";
-import { GameTimer } from "../controllers/GameTimer";
-import { StoreLevel } from "../StoreLevel/StoreLevel";
-import { Timer } from "../components/Timer";
-import { ShiftCounter } from "../components/ShiftCounter";
-import { Launcher } from "../components/Launcher";
-import { CountdownModal } from "../components/CountdownModal";
-import { FinishModal } from "../components/FinishModal";
+import { Component, render } from "preact";
+import { GameController, GameState, level } from "@/controllers/GameController";
+import { GameTimer } from "@/controllers/GameTimer";
+import { StoreLevel } from "@/StoreLevel/StoreLevel";
+import { Timer } from "@/components/Timer";
+import { ShiftCounter } from "@/components/ShiftCounter";
+import { Launcher } from "@/components/Launcher";
+import { CountdownModal } from "@/components/CountdownModal";
+import { FinishModal } from "@/components/FinishModal";
 
-import "./Game.scss";
+import "./main.css";
+import "./Game.css";
 
-export default class Game extends Component<any, GameState> {
+class Game extends Component<any, GameState> {
 
     constructor() {
         super();
@@ -51,3 +52,5 @@ export default class Game extends Component<any, GameState> {
     }
 
 }
+
+render(<Game />, document.getElementById('game')!)

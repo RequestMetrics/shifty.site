@@ -1,5 +1,5 @@
 import { h, Component } from "preact";
-import "./Modal.scss";
+import "./Modal.css";
 
 export interface ModalProps {
     isOpen: boolean,

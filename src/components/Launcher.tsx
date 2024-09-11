@@ -2,7 +2,7 @@ import { h, Component } from "preact";
 import { LeaderboardModal } from "./LeaderboardModal";
 import { SignupModal } from "./SignupModal";
 
-import "./Launcher.scss";
+import "./Launcher.css";
 
 export class Launcher extends Component<any, any> {
 

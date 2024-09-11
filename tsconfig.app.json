@@ -15,6 +15,9 @@
             ],
             "react-dom": [
                 "./node_modules/preact/compat/"
+            ],
+            "@/*": [
+                "./src/*"
             ]
         },
         /* Bundler mode */

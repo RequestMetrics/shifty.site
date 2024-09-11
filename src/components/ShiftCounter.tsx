@@ -3,7 +3,7 @@ import { GameController } from "../controllers/GameController";
 import { GameTimer } from "../controllers/GameTimer";
 import { getRandomInteger, isSafari } from "../lib";
 
-import "./ShiftCounter.scss";
+import "./ShiftCounter.css";
 
 /**
  * The LayoutShift interface of the Performance API provides insights into the layout stability of web pages based on movements of the elements on the page.

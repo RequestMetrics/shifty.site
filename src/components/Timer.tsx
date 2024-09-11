@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 import { h, Component } from "preact";
-import "./Timer.scss";
+import "./Timer.css";
 
 export interface TimerProps {
     until: DateTime

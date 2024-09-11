@@ -3,7 +3,7 @@ import { StoreLevelController, StoreLevelState } from "./StoreLevelController";
 import { Widget } from "./Widget";
 import { FailModal } from "./FailModal";
 import { ExperienceModal, ExperienceThanksModal } from "./ExperienceModal";
-import "./StoreLevel.scss";
+import "./StoreLevel.css";
 
 export class StoreLevel extends Component<any, StoreLevelState> {
 
