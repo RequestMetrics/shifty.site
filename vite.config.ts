@@ -5,8 +5,9 @@ import packageJson from './package.json'
 // https://vitejs.dev/config/
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
+    base: "/",
     build: {
-        outDir: "./docs/"
+        outDir: "./dist/"
     },
     plugins: [preact()],
     define: {
