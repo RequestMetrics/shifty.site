@@ -1,18 +1,11 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "rootDir": "source",
-    "outDir": "dist",
-    "noEmitOnError": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  },
-  "include": [
-    "./source/**/*"
-  ]
+    "files": [],
+    "references": [
+        {
+            "path": "./tsconfig.app.json"
+        },
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
 }
