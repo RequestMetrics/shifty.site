@@ -22,6 +22,12 @@ body.home {
                 max-height: $hero-height;
                 height: 40vh;
 
+                h2 {
+                    font-size: 1.2em;
+                    margin: 0;
+                    font-style: italic;
+                }
+
                 >p {
                     font-size: 1.1em;
                 }
