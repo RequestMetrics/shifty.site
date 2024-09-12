@@ -1,0 +1,23 @@
+.fullview {
+    width: 100vw;
+    height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.text-center {
+    max-width: $max-text-width;
+    margin: 0 auto;
+    text-align: center;
+}

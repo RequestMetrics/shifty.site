@@ -1,0 +1,44 @@
+@import '../node_modules/reset-css/reset.css';
+@import '@/styles/variables';
+@import '@/styles/layout';
+
+body.home {
+
+    $about-width: 360px;
+    $content-spacing: 30px;
+
+    .container {
+        gap: $content-spacing;
+        background-color: $background-color;
+
+        .game-panel {
+            flex: auto;
+            padding: $content-spacing;
+            color: $text-color;
+
+            .game-hero {
+                $hero-height: 500px;
+                flex: 1 0 $hero-height;
+                max-height: $hero-height;
+                height: 50vh;
+            }
+        }
+
+        .about-panel {
+            flex: 0 0 $about-width;
+            min-width: $about-width;
+            padding: $content-spacing;
+            box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
+            border-left: 0.5px solid desaturate(lighten($background-color, 40%), 60);
+
+            color: $text-color-subtle;
+            background-color: desaturate(lighten($background-color, 20%), 60);
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+    }
+
+}

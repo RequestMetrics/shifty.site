@@ -1,1 +1,0 @@
-export const PLAYER_STORAGE_KEY = 'rm_player_data';

@@ -1,0 +1,7 @@
+@import "colors";
+
+$background-color: darken($cornflower, 43%);
+$text-color: #fafbfe;
+$text-color-subtle: darken($text-color, 10%);
+
+$max-text-width: 720px;

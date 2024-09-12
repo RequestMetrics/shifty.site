@@ -6,10 +6,8 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
-
     base: "/",
     build: {
-
         outDir: "./dist/",
         rollupOptions: {
             input: {

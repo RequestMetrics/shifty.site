@@ -20,14 +20,14 @@
     "license": "MIT",
     "dependencies": {
         "luxon": "3.5.0",
-        "preact": "^10.23.1"
+        "preact": "^10.23.1",
+        "reset-css": "^5.0.2"
     },
     "devDependencies": {
         "@preact/preset-vite": "^2.9.0",
-        "@types/node": "^22.5.4",
         "@types/luxon": "3.4.2",
-        "autoprefixer": "^10.4.20",
-        "tailwindcss": "^3.4.11",
+        "@types/node": "^22.5.4",
+        "sass": "^1.78.0",
         "typescript": "^5.5.3",
         "vite": "^5.4.1"
     }

@@ -3,17 +3,59 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Shifty Site - A Layout Shift Challenge from Request Metrics</title>
+    <title>Shifty Site - The Layout Shift Game from Request Metrics</title>
     <meta name="version" content="%PACKAGE_VERSION%">
     <meta name="build_time" content="%BUILD_TIME%">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body>
-    <main id="xxx" class="flex">
-        <h1 class="ext-3xl font-bold underline">hey</h1>
-    </main>
+<body class="home">
+    <div class="container fullview flex">
+        <main class="game-panel flex-column">
+            <div class="game-hero flex-column justify-center text-center">
+                <h1>The Layout Shift Challenge</h1>
+                <p>
+                    Are you fast enough to grab the Deal of the Day while our
+                    slow online store shifts around from loading async content?
+                    How many deals can you get before the time runs out?
+                </p>
+                <a href="/game" class="btn">Play</a>
+            </div>
+            <div id="score-board"></div>
+            <footer>
+                <div class="copyright">
+                    Shifty.site &copy; 2020-2024
+                    <a href="https://requestmetrics.com/?utm_source=shifty">Request Metrics</a>.
+                    It is available for use and modification under the
+                    <a href="https://github.com/RequestMetrics/shifty.site/blob/main/LICENSE">MIT License</a>.
+                </div>
+            </footer>
+        </main>
+        <aside class="about-panel">
+            <!-- <div class="how-text">
+                <h2>How to Play</h2>
+                <p>
+                    You are about to load the GreatGets online store. The site
+                    slowly loads product tiles, causing the layout to shift around,
+                    violently.
+                </p>
+                <p>
+                    Dodge the shifting products and click as many "Deal of the Day"
+                    into your cart as you can before time runs out.
+                </p>
+            </div> -->
+            <div class="about-text">
+                <h2>About</h2>
+                <p>
+                    something something
+                </p>
+            </div>
+            <div class="about-links">
+
+            </div>
+        </aside>
+    </div>
     <div id="home"></div>
     <script type="module" src="/src/home.tsx"></script>
 </body>
