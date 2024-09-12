@@ -1,0 +1,22 @@
+@import "@/styles/variables.scss";
+
+.game-info-modal {
+    color: $text-color-dark;
+
+    .modal-box {
+        display: flex;
+    }
+
+    footer {
+        margin-top: auto;
+    }
+
+    .how-illustration {
+        margin-bottom: calc($spacing-unit / 2);
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

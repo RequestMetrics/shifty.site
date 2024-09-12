@@ -13,11 +13,17 @@
     line-height: 1.5em;
     font-weight: $bold-font-weight;
     transition: border-color, background 150ms ease;
+    background-image: linear-gradient(120deg, darken($text-color, 10%), $text-color);
 
     &:active,
     &:hover,
     &:focus {
         text-decoration: none;
+    }
+
+    &.btn-big {
+        padding: 10px 20px;
+        font-size: 1.4em;
     }
 
     &.btn-primary {

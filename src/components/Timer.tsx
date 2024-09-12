@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 import { h, Component } from "preact";
-import "./Timer.css";
+import "./Timer.scss";
 
 export interface TimerProps {
     until: DateTime
@@ -40,7 +40,7 @@ export class Timer extends Component<TimerProps, TimerState> {
 
     render(): h.JSX.Element {
         return (
-            <div class="timer">
+            <div class="timer flex-column">
                 <div class="label">Time</div>
                 <div class={`value ${this.state.seconds <= 5 && this.state.milliseconds + this.state.seconds !== 0 ? "danger" : ""}`}>
                     {this.state.seconds.toString().padStart(2, '0')}
