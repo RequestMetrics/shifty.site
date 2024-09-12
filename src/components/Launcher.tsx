@@ -1,5 +1,4 @@
-import { h, Component } from "preact";
-import { LeaderboardModal } from "./LeaderboardModal";
+import { Component } from "preact";
 import { SignupModal } from "./SignupModal";
 
 import "./Launcher.css";
