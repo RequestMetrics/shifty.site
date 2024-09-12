@@ -50,7 +50,7 @@ class GameInfoModal extends Component<ModalProps, any> {
                         Unsubscribe at any time.
                     </p>
 
-                    <form class="flex flex-column" onSubmit={(e) => this.saveForm(e)} >
+                    <form class="flex flex-column"  >
 
                         <h3 class="text-center" style="margin:20px 0 ">Have we scanned your badge?</h3>
 
