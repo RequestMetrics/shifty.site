@@ -13,7 +13,7 @@ The game was built by [Request Metrics](https://requestmetrics.com/?utm_source=g
 
 ## Usage
 
-The game was built using Preact and hosted on Github pages. The build engine runs on NodeJS with Webpack. To run locally, you'll need NodeJS ~20.17.0 and install dependencies:
+The game was built using Typescript, Preact and hosted on Github pages. The build engine runs on NodeJS with Vite. To run locally, you'll need NodeJS ~20.17.0 and install dependencies:
 
 ```
 npm install
@@ -25,4 +25,4 @@ Then, to run the game:
 npm start
 ```
 
-And open http://localhost:9000/
+And open http://localhost:4173/
