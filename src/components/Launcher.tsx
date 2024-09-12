@@ -11,60 +11,28 @@ export class Launcher extends Component<any, any> {
 
         this.state = {
             isLeaderboardModalOpen: false,
-            isSignupModalOpen: false
+            isSignupModalOpen: true
         };
     }
 
-
-    render(): h.JSX.Element {
+    render() {
         return (
-            <div class="launcher">
-                <div class="container flex flex-column">
-                    <h2>Get the deals before they’re gone!</h2>
-
-                    <div class="launch-content flex">
-                        <div class="illustration">
-                            <img src="/images/deal-of-the-day.png" height="600" width="600" />
+            <>
+                <div class="store-level">
+                    <header class="store-header">
+                        <div class="logo">
+                            <img src="/images/logo.png" width="136" height="80" />
                         </div>
-                        <div class="instructions">
-                            <p>
-                                The GreatGets website sucks. It loads async content in random
-                                sizes, causing frustrating <strong>layout shifts</strong>.
-                            </p>
-                            <p>
-                                They have awesome deals though, but only for 30 seconds!
-                                How many can you add before time runs out?
-                            </p>
-                            <p>
-                                Watch out for the annoying popups!
-                            </p>
-                            <div class="controls flex justify-center">
-                                <button type="button" class="btn btn-blue"
-                                    onClick={() => this.setState({ isSignupModalOpen: true })}
-                                // onClick={e => GameController.start(level.STORE) }
-                                >Start!</button>
-                                {/* <button type="button" class="btn btn-grey" onClick={() => this.setState({isLeaderboardModalOpen:true})}>Scores</button> */}
-                            </div>
+                        <div class="cart">
+                            <span class="cart-count">{this.state.cart}</span>
+                            <img src="/images/cart.svg"></img>
+                            <span class="cart-label">Cart</span>
                         </div>
-                    </div>
-
-                    <div class="rm-logo flex flex-column align-center">
-                        <h4 style="font-weight: normal">Developed By</h4>
-                        <a href="https://requestmetrics.com/">
-                            <img src="/images/request_metrics_logo.svg" alt="Request Metrics" width="300" height="102" />
-                        </a>
-                    </div>
-
-                    <div class="sloth-this">
-                        <img src="/images/this_500_apng.png" width="500" height="500" />
-                    </div>
-
+                    </header>
+                    <div class="widget-grid"></div>
                 </div>
-
                 <SignupModal isOpen={this.state.isSignupModalOpen} onClose={() => this.setState({ isSignupModalOpen: false })} />
-                <LeaderboardModal isOpen={this.state.isLeaderboardModalOpen} onClose={() => this.setState({ isLeaderboardModalOpen: false })} />
-
-            </div>
+            </>
         )
     }
 }

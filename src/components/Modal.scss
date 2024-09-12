@@ -1,0 +1,29 @@
+@import "@/styles/variables";
+
+.modal-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
+
+    .modal-box {
+        width: 85vw;
+        min-height: 85vh;
+        background: white;
+        padding: $spacing-unit/2;
+        border-radius: 10px;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 50%);
+    }
+
+    @media(min-width: $tablet-width) {
+        .modal-box {
+            max-width: 600px;
+            min-height: unset;
+        }
+    }
+}

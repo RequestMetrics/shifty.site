@@ -11,53 +11,66 @@
 </head>
 
 <body class="home">
-    <div class="container fullview flex">
+    <div class="container fullwidth">
         <main class="game-panel flex-column">
-            <div class="game-hero flex-column justify-center text-center">
+            <div class="game-hero flex-column justify-center align-center text-center">
                 <h1>The Layout Shift Challenge</h1>
                 <p>
-                    Are you fast enough to grab the Deal of the Day while our
-                    slow online store shifts around from loading async content?
+                    Are you fast enough to grab the Deal of the Day?
+                    This online store is slow. Really slow.
+                    It shifts around constantly from slow-loading content.
                     How many deals can you get before the time runs out?
                 </p>
-                <a href="/game" class="btn">Play</a>
+                <div id="game-controls" class="controls flex-column"></div>
             </div>
+            <picture class="game-illustration">
+                <img src="/images/sloth_vr.svg" alt="Sloth in VR" />
+            </picture>
             <div id="score-board"></div>
-            <footer>
-                <div class="copyright">
-                    Shifty.site &copy; 2020-2024
-                    <a href="https://requestmetrics.com/?utm_source=shifty">Request Metrics</a>.
-                    It is available for use and modification under the
-                    <a href="https://github.com/RequestMetrics/shifty.site/blob/main/LICENSE">MIT License</a>.
-                </div>
-            </footer>
         </main>
-        <aside class="about-panel">
-            <!-- <div class="how-text">
-                <h2>How to Play</h2>
-                <p>
-                    You are about to load the GreatGets online store. The site
-                    slowly loads product tiles, causing the layout to shift around,
-                    violently.
-                </p>
-                <p>
-                    Dodge the shifting products and click as many "Deal of the Day"
-                    into your cart as you can before time runs out.
-                </p>
-            </div> -->
+        <aside class="about-panel flex-column">
             <div class="about-text">
                 <h2>About</h2>
                 <p>
-                    something something
+                    The Layout Shift Challenge was created by
+                    <a href="https://requestmetrics.com/?utm_source=shifty">Request Metrics</a>
+                    to demonstrate the frustrating behavior of Layout shifts and the
+                    <a href="https://requestmetrics.com/web-performance/cumulative-layout-shift/?utm_source=shifty">
+                        Cumulative Layout Shift (CLS)
+                    </a>
+                    metric for web performance.
+                </p>
+                <p>
+                    The game measures actual layout shift events as content is asynchronously loaded and
+                    removed from the page, making it challenging for you to use it.
+                </p>
+                <p>
+                    On browsers that do not yet support layout shifts, the game simulates the events to
+                    generate similar scores.
                 </p>
             </div>
-            <div class="about-links">
-
+            <div class="about-links flex-column">
+                <a href="https://requestmetrics.com/?utm_source=shifty" class="flex align-center">
+                    <img src="/images/request_metrics_icon_dark.svg" alt="Request Metrics" width="60" height="60"
+                        loading="lazy">
+                    <div>About Request Metrics</div>
+                </a>
+                <a href="https://github.com/RequestMetrics/shifty.site/" class="flex align-center">
+                    <img src="/images/github.svg" alt="Github" width="60" height="60" loading="lazy">
+                    <div>Explore on Github</div>
+                </a>
             </div>
         </aside>
     </div>
-    <div id="home"></div>
-    <script type="module" src="/src/home.tsx"></script>
+    <footer class="site-footer">
+        <div class="copyright">
+            Shifty.site &copy; 2020-2024
+            <a href="https://requestmetrics.com/?utm_source=shifty">Request Metrics</a>.
+            It is available for use and modification under the
+            <a href="https://github.com/RequestMetrics/shifty.site/blob/main/LICENSE">MIT License</a>.
+        </div>
+    </footer>
+    <script type="module" src="/src/Home.tsx"></script>
 </body>
 
 </html>

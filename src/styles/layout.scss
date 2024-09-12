@@ -1,7 +1,19 @@
-.fullview {
-    width: 100vw;
-    height: 100vh;
+.container {
+    // width: 100%;
+    // margin-right: auto;
+    // margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    // min-width: $min-width;
+    // gap: $spacing-unit;
+
+    // &.fullwidth {
+    //     max-width: 100vw;
+    //     width: 100vw;
+    // }
 }
+
+
 
 .flex {
     display: flex;
@@ -10,6 +22,15 @@
 .flex-column {
     display: flex;
     flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.align-center {
+    align-items: center;
 }
 
 .justify-center {

@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Muli';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        local('Muli'), local('Mulish'),
+        url(/fonts/muli.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/s/muli/v26/7Auwp_0qiz-afTLGLQjUwkQ.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Muli';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+        local('Muli'), local('Mulish'),
+        url(/fonts/muli.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/s/muli/v26/7Auwp_0qiz-afTLGLQjUwkQ.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        local('Poppins'),
+        url(/fonts/poppins-400.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+        local('Poppins'),
+        url(/fonts/poppins-600.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src:
+        local('Poppins'),
+        url(/fonts/poppins-900.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z1xlFd2JQEk.woff2) format('woff2');
+}

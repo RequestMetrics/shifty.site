@@ -1,7 +1,22 @@
-@import "colors";
+// Fonts
+@import "fonts";
+$base-font-family: "Muli", sans-serif;
+$header-font-family: "Poppins", sans-serif;
+$base-font-size: 16px;
+$base-font-weight: 400;
+$bold-font-weight: 600;
+$base-line-height: 1.5;
 
+// Colors
+@import "colors";
 $background-color: darken($cornflower, 43%);
 $text-color: #fafbfe;
 $text-color-subtle: darken($text-color, 10%);
+$text-color-dark: $midnight-1;
+$link-color: lighten($cornflower, 25%);
 
+// Sizes
+$spacing-unit: 30px;
 $max-text-width: 720px;
+$tablet-width: 1080px;
+$min-width: 375px;

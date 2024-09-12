@@ -1,0 +1,74 @@
+@import "./variables.scss";
+
+body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    width: 100%;
+    overscroll-behavior-x: none;
+
+    // @media(max-width: $tablet-width) {
+    //     font: $base-font-weight #{$tablet-font-size}/#{$base-line-height} $base-font-family;
+    // }
+}
+
+a {
+    color: $link-color;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+%vertical-rhythm {
+    margin-bottom: calc($spacing-unit / 2);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: $bold-font-weight #{$base-font-size}/#{$base-line-height} $header-font-family;
+}
+
+
+h1 {
+    font-size: 2.4em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+strong {
+    font-weight: $bold-font-weight;
+}

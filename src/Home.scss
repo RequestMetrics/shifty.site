@@ -1,6 +1,5 @@
 @import '../node_modules/reset-css/reset.css';
-@import '@/styles/variables';
-@import '@/styles/layout';
+@import '@/styles/';
 
 body.home {
 
@@ -8,20 +7,45 @@ body.home {
     $content-spacing: 30px;
 
     .container {
-        gap: $content-spacing;
         background-color: $background-color;
 
         .game-panel {
             flex: auto;
             padding: $content-spacing;
             color: $text-color;
+            max-width: 1200px;
+            margin: 0 auto;
 
             .game-hero {
-                $hero-height: 500px;
+                $hero-height: 400px;
                 flex: 1 0 $hero-height;
                 max-height: $hero-height;
-                height: 50vh;
+                height: 40vh;
+
+                >p {
+                    font-size: 1.1em;
+                }
+
+                .controls {
+                    gap: 10px;
+                    width: 300px;
+
+                    &>* {
+                        flex: 1 1 0px;
+                    }
+                }
             }
+
+            .game-illustration {
+                display: none;
+                padding: 0 $content-spacing;
+                flex: auto;
+
+                img {
+                    width: 100%;
+                }
+            }
+
         }
 
         .about-panel {
@@ -33,12 +57,88 @@ body.home {
 
             color: $text-color-subtle;
             background-color: desaturate(lighten($background-color, 20%), 60);
+
+            .about-links {
+                gap: 10px;
+
+                a {
+                    gap: 10px;
+                    background: $text-color;
+                    padding: 8px;
+                    border-radius: 10px;
+                    font-size: 1.2em;
+                    font-weight: $bold-font-weight;
+                    text-decoration: none;
+                    color: $text-color-dark;
+
+                    img {
+                        width: 40px;
+                        height: auto;
+                    }
+                }
+            }
+        }
+
+
+        @media(min-width: $tablet-width) {
+            flex-direction: row;
+            min-height: 100vh;
+
+            .game-panel {
+                .game-illustration {
+                    display: flex;
+                }
+            }
+
+            .about-panel {
+                .about-links {
+                    margin-top: auto;
+                }
+            }
+
+
+
+            // .about-panel {
+            //     flex: auto;
+            //     min-width: unset;
+            //     max-width: calc(100% - ($content-spacing * 2));
+            //     border: none;
+            //     box-shadow: none;
+            // }
+
+        }
+
+    }
+
+    .modal-wrap {
+        color: $text-color-dark;
+
+        .modal-box {
+            display: flex;
         }
 
         footer {
             margin-top: auto;
         }
 
+        .how-illustration {
+            margin-bottom: calc($content-spacing / 2);
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    footer.site-footer {
+        font-size: 0.9em;
+        color: $text-color-subtle;
+        padding: calc($content-spacing / 2);
+
+        a {
+            color: $text-color-subtle;
+        }
     }
 
 }

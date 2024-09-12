@@ -1,0 +1,45 @@
+.btn {
+    // border: 4px solid $border-color;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: $base-font-family;
+    font-size: 1em;
+    line-height: 1.5em;
+    font-weight: $bold-font-weight;
+    transition: border-color, background 150ms ease;
+
+    &:active,
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &.btn-primary {
+        border-color: $cornflower;
+        background-image: linear-gradient(120deg, darken($cornflower, 10%), $cornflower);
+        color: white;
+
+        svg.icon {
+            fill: white;
+        }
+
+        &:active,
+        &:hover,
+        &:focus {
+            border-color: darken($cornflower, 20%);
+            background-image: linear-gradient(120deg, darken($cornflower, 20%), darken($cornflower, 10%));
+        }
+    }
+
+    &.btn-ghost {
+        border: none;
+        background-color: transparent;
+        color: $link-color;
+    }
+}
