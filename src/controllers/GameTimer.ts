@@ -30,7 +30,7 @@ class _GameTimer {
     }
 
     getTickDelay(): number {
-        let randomTime = getRandomInteger(1000, 3000) - (this.multiplier * 300);
+        let randomTime = getRandomInteger(1000, 3000) - (this.multiplier * 200);
         return Math.max(300, randomTime);
     }
 

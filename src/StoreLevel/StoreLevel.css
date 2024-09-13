@@ -59,19 +59,19 @@
         flex-wrap: wrap;
         align-content: start;
         justify-content: center;
-        height: calc(100vh - 60px);
-        padding-right: 8px;
+        height: calc(100vh - 60px - 50px - 50px);
+        padding: 8px;
+        gap: 8px;
     }
 
     .widget {
-        height: calc((100vh - 100px) / 4);
+        height: calc((100vh - 100px - 100px) / 4);
         border: 1px solid rgb(197, 203, 213);
         background-color: white;
-        margin: 8px 0 0 8px;
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 45vw;
+        min-width: calc(50vw - 12px);
 
         img {
             width: auto;
