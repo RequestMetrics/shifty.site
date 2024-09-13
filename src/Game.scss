@@ -1,17 +1,23 @@
 @import '@/styles/';
 
 body.game {
+    color: $text-color-dark;
+
     background-color: $background-color-light;
+    min-width: $min-width;
 
     header.game-header {
         $game-header-height: 50px;
-        $game-header-color: darken($cornflower, 20%);
+        $game-header-color: darken($cornflower, 30%);
 
         height: $game-header-height;
         background-color: $game-header-color;
         color: $text-color;
         justify-content: space-between;
         padding: 0 calc($spacing-unit / 2);
+        z-index: 1001;
+        position: relative;
+        box-shadow: 0px 5px 10px 3px rgb(55, 102, 196, 50%);
 
         .game-logo {
             font-size: 1.4em;
@@ -25,23 +31,46 @@ body.game {
         }
 
         .game-stats {
+            align-self: normal;
             background-color: $game-header-color;
-            height: calc($game-header-height * 3);
+            height: calc($game-header-height * 1.5);
             // position: absolute;
             width: 400px;
-            padding: 15px 10px 10px;
+            padding: $spacing-unit;
+            gap: 5px;
+            justify-content: center;
             // top: -10;
             display: flex;
             flex-direction: row;
             align-items: center;
-            border-radius: 3em;
+            border-radius: 10em;
             z-index: 9999;
+            box-shadow: 0px 5px 5px 0px rgb(55, 102, 196, 50%);
 
-            // box-shadow: 0px 0px 20px rgb(55, 102, 196, 50%);
         }
 
         .game-controls {
             gap: 5px;
+        }
+
+        @media(max-width: $tablet-width) {
+            flex-direction: column;
+            height: auto;
+
+            .game-logo {
+                font-size: 0.8em;
+            }
+
+            .game-stats {
+                padding: 0;
+                height: auto;
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .game-controls {
+                display: none;
+            }
         }
     }
 

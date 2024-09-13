@@ -32,7 +32,7 @@ class Game extends Component<any, GameState> {
                     </div>
                     <div class="game-controls flex">
                         <button type="button" class="btn" onClick={() => GameTimer.pause()}>Pause</button>
-                        <button type="button" class="btn" onClick={() => GameTimer.pause()}>Exit</button>
+                        <a type="button" class="btn" href="/">Quit</a>
                     </div>
                 </header>
                 {this.renderGameContent()}

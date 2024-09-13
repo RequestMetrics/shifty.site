@@ -40,7 +40,7 @@ export class Timer extends Component<TimerProps, TimerState> {
 
     render(): h.JSX.Element {
         return (
-            <div class="timer flex-column">
+            <div class="timer flex align-center">
                 <div class="label">Time</div>
                 <div class={`value ${this.state.seconds <= 5 && this.state.milliseconds + this.state.seconds !== 0 ? "danger" : ""}`}>
                     {this.state.seconds.toString().padStart(2, '0')}

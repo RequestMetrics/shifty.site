@@ -62,7 +62,7 @@ export class ShiftCounter extends Component<any, ShiftCounterState> {
 
     render(): h.JSX.Element {
         return (
-            <div class="shift-counter">
+            <div class="shift-counter flex align-center">
                 <div class="label">CLS</div>
                 <div class="value">
                     {this.state.cls.toFixed(4)}
