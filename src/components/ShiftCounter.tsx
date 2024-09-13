@@ -1,7 +1,7 @@
 import { h, Component } from "preact";
-import { GameController } from "../controllers/GameController";
-import { GameTimer } from "../controllers/GameTimer";
-import { getRandomInteger, isSafari } from "../lib";
+import { GameController } from "@/controllers/GameController";
+import { GameTimer } from "@/controllers/GameTimer";
+import { getRandomInteger } from "@/lib";
 
 import "./ShiftCounter.css";
 
