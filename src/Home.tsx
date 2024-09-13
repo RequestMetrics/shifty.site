@@ -1,8 +1,13 @@
 import { Component, render } from 'preact'
+import { RM } from '@request-metrics/browser-agent';
 import { ScoreBoard } from '@/components/ScoreBoard';
 import { GameInfoModal } from './components/GameInfoModal';
 
 import '@/Home.scss';
+
+RM.install({
+    token: "h8an2rr:w3qi7wr"
+});
 
 class HomeGameControls extends Component<any, any> {
     closeModal() {

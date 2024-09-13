@@ -3,11 +3,39 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Shifty Site - The Layout Shift Game from Request Metrics</title>
+    <title>Shifty.site - The Layout Shift Game from Request Metrics</title>
     <meta name="version" content="%PACKAGE_VERSION%">
     <meta name="build_time" content="%BUILD_TIME%">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preload fonts -->
+    <link rel="preload" href="/fonts/muli.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+
+    <meta name="description"
+        content="Are you fast enough to grab the Deal of the Day? This online store is slow. Really slow. It shifts around constantly from slow-loading content. How many deals can you get before the time runs out?">
+
+    <!-- OpenGraph Meta -->
+    <meta property="og:title" content="Shifty.site - The Layout Shift Game from Request Metrics">
+    <meta property="og:site_name" content="Shift.site">
+    <meta property="og:url" content="https://shifty.site/">
+    <meta property="og:description"
+        content="Are you fast enough to grab the Deal of the Day? This online store is slow. Really slow. It shifts around constantly from slow-loading content. How many deals can you get before the time runs out?">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://shift.site/images/share.png">
+    <meta property="og:type" content="website">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body class="home">
@@ -37,17 +65,23 @@
                     <a href="https://requestmetrics.com/?utm_source=shifty">Request Metrics</a>
                     to demonstrate the frustrating behavior of Layout shifts and the
                     <a href="https://requestmetrics.com/web-performance/cumulative-layout-shift/?utm_source=shifty">
-                        Cumulative Layout Shift (CLS)
-                    </a>
+                        Cumulative Layout Shift (CLS)</a>
                     metric for web performance.
                 </p>
                 <p>
-                    The game measures actual layout shift events as content is asynchronously loaded and
-                    removed from the page, making it challenging for you to use it.
+                    Layout shifts are performance events caused by lazy-loading content into
+                    a website that changes position of other elements. For example, an image
+                    loading and pushing down text below it.
                 </p>
                 <p>
-                    On browsers that do not yet support layout shifts, the game simulates the events to
-                    generate similar scores.
+                    Cumulative Layout Shift (CLS) is a Core Web Vital performance metric that
+                    measures the total size and distance of these layout shifts. Poor CLS scores,
+                    can penalize your pagerank and decrease your traffic.
+                </p>
+                <p>
+                    You can check if your website has CLS problems using the
+                    <a href="https://requestmetrics.com/resources/tools/crux/?utm_source=shifty">
+                        free Speed Check Tool</a>.
                 </p>
             </div>
             <div class="about-links flex-column">

@@ -54,8 +54,7 @@ body.home {
         }
 
         .about-panel {
-            flex: 0 0 $about-width;
-            min-width: $about-width;
+
             padding: $spacing-unit;
             box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
             border-left: 0.5px solid desaturate(lighten($background-color, 40%), 60);
@@ -96,6 +95,9 @@ body.home {
             }
 
             .about-panel {
+                flex: 0 0 $about-width;
+                min-width: $about-width;
+
                 .about-links {
                     margin-top: auto;
                 }

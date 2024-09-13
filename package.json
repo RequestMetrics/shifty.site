@@ -19,6 +19,7 @@
     "author": "Request Metrics <hello@requestmetrics.com>",
     "license": "MIT",
     "dependencies": {
+        "@request-metrics/browser-agent": "^2.4.1",
         "luxon": "3.5.0",
         "preact": "^10.23.1",
         "reset-css": "^5.0.2"

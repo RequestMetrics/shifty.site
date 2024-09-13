@@ -1,14 +1,18 @@
 import { Component, render } from "preact";
+import { RM } from '@request-metrics/browser-agent';
 import { GameController, GameState, level } from "@/controllers/GameController";
 import { GameTimer } from "@/controllers/GameTimer";
 import { StoreLevel } from "@/StoreLevel/StoreLevel";
 import { Timer } from "@/components/Timer";
 import { ShiftCounter } from "@/components/ShiftCounter";
-import { CountdownModal } from "@/components/CountdownModal";
 import { FinishModal } from "@/components/FinishModal";
 
 import "./main.css";
 import "./Game.scss";
+
+RM.install({
+    token: "h8an2rr:w3qi7wr"
+});
 
 class Game extends Component<any, GameState> {
 
@@ -36,7 +40,6 @@ class Game extends Component<any, GameState> {
                     </div>
                 </header>
                 {this.renderGameContent()}
-                {/* <CountdownModal isOpen={!!this.state.countdown} number={this.state.countdown} /> */}
                 <FinishModal isOpen={this.state.showFinishModal} cart={this.state.cart} clicks={this.state.clicks} cls={GameController.cls} />
             </>
         );
