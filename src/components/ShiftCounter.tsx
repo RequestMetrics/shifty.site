@@ -33,8 +33,10 @@ export class ShiftCounter extends Component<any, ShiftCounterState> {
 
         GameController.onStart(() => {
 
-            if (isSafari()) {
-                console.info("approximating layout shift value on Safari");
+            if (!self.PerformanceObserver ||
+                !PerformanceObserver.supportedEntryTypes ||
+                !PerformanceObserver.supportedEntryTypes.includes("layout-shift")) {
+                console.info("approximating layout shift value on unsupported browser");
                 GameTimer.onTick((tick) => {
                     let cls = this.state.cls;
                     cls = cls + ((getRandomInteger(5000, 10000) + (tick)) / 10000);
