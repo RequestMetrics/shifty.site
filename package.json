@@ -17,7 +17,7 @@
         "url": "https://github.com/RequestMetrics/shifty.site"
     },
     "author": "Request Metrics <hello@requestmetrics.com>",
-    "license": "MIT",
+    "license": "copyright",
     "dependencies": {
         "@request-metrics/browser-agent": "^2.4.1",
         "luxon": "3.5.0",
