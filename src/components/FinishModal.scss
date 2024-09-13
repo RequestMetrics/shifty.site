@@ -58,42 +58,17 @@
                     }
                 }
             }
-
-            // p {
-            //     font-size: 1.2em;
-            // }
-
-            // .logo {
-            //     width: 240px;
-            //     margin-top: 10px;
-
-            //     img {
-            //         width: 100%;
-            //         height: auto;
-            //     }
-            // }
         }
     }
 
-
-
-    // p {
-    //     font-size: 1.1em;
-    // }
-
-
-
-
-    // p+p {
-    //     margin-top: 10px;
-    // }
-
-    // .btn+.btn {
-    //     margin-left: 10px;
-    // }
-
     @media (max-width: 800px) {
         .illustration {
+            display: none;
+        }
+    }
+
+    @media (max-height: 750px) {
+        .cta .preview {
             display: none;
         }
     }
