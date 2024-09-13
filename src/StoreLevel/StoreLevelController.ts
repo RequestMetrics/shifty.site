@@ -3,8 +3,8 @@ import { SoundController } from "../controllers/SoundController";
 import { getRandomInteger } from "../lib/getRandomInteger";
 
 const WIDGET_COUNT = 7;
-const MODAL_X_ADJUST = 40;
-const MODAL_Y_ADJUST = 40;
+const MODAL_X_ADJUST = 30;
+const MODAL_Y_ADJUST = 25;
 
 export interface StoreLevelState {
     cart: number
