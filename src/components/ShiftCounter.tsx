@@ -31,29 +31,33 @@ export class ShiftCounter extends Component<any, ShiftCounterState> {
 
     componentDidMount(): void {
 
-        if (isSafari()) {
-            console.info("approximating layout shift value on Safari");
-            GameTimer.onTick((tick) => {
-                let cls = this.state.cls;
-                cls = cls + ((getRandomInteger(5000, 10000) + (tick)) / 10000);
-                this.setState({ cls });
-                GameController.cls = cls;
-            })
-        }
-        else {
-            let cls = this.state.cls;
-            this.observer = new PerformanceObserver((list: PerformanceObserverEntryList) => {
-                Promise.resolve().then(() => {
-                    (list.getEntries() as CustomLayoutShift[]).forEach((entry) => {
-                        cls += entry.value
-                    });
+        GameController.onStart(() => {
+
+            if (isSafari()) {
+                console.info("approximating layout shift value on Safari");
+                GameTimer.onTick((tick) => {
+                    let cls = this.state.cls;
+                    cls = cls + ((getRandomInteger(5000, 10000) + (tick)) / 10000);
                     this.setState({ cls });
+                    GameController.cls = cls;
                 })
-                this.setState({ cls });
-                GameController.cls = cls;
-            });
-            this.observer.observe({ type: "layout-shift", buffered: false });
-        }
+            }
+            else {
+                let cls = this.state.cls;
+                this.observer = new PerformanceObserver((list: PerformanceObserverEntryList) => {
+                    Promise.resolve().then(() => {
+                        (list.getEntries() as CustomLayoutShift[]).forEach((entry) => {
+                            cls += entry.value
+                        });
+                        this.setState({ cls });
+                    })
+                    this.setState({ cls });
+                    GameController.cls = cls;
+                });
+                this.observer.observe({ type: "layout-shift", buffered: false });
+            }
+        })
+
     }
 
     componentWillUnmount(): void {

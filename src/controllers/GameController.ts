@@ -32,6 +32,7 @@ class _GameController {
     setState!: (state: any) => void;
     cls: number = 0;
     countdownWarning: boolean = false;
+    onStartCbs: (() => void)[] = [];
 
     init(getState: () => GameState, setState: (state: any) => void) {
 
@@ -77,6 +78,7 @@ class _GameController {
             }
         })
         GameTimer.start();
+        this.onStartCbs.forEach(cb => cb());
     }
 
     stop() {
@@ -111,6 +113,10 @@ class _GameController {
             timestamp: state.timestamp
         });
         setLocalStorage(PLAYER_STORAGE_KEY, savedPlayerData);
+    }
+
+    onStart(cb: () => void): void {
+        this.onStartCbs.push(cb);
     }
 
     private countdown(i: number): Promise<void> {
