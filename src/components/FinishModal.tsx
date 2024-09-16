@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import { RM } from '@request-metrics/browser-agent';
 import { GameController } from "@/controllers/GameController";
 import { Modal, ModalProps } from "@/components/Modal";
 import { getAccuracy } from "@/lib";
@@ -19,8 +20,15 @@ export const FinishModal = (props: FinishModalProps) => {
         "/images/clap_500_apng.png" :
         "/images/sob_500_apng.png";
 
-    const shareText = `I got ${props.cart} daily deals with ${getAccuracy(props.cart, props.clicks)} accuracy on ShiftySite, the Layout Shift game.`;
+    const accuracy = getAccuracy(props.cart, props.clicks);
+    const shareText = `I got ${props.cart} daily deals with ${accuracy} accuracy on ShiftySite, the Layout Shift game.`;
     const shareTextWithUrl = `${shareText}\n\nhttps://shifty.site/`;
+
+    RM.sendEvent("game-finish", {
+        cart: '' + props.cart,
+        clicks: '' + props.clicks,
+        accuracy
+    });
 
     return (
         <div class="finish-modal-wrap">
@@ -36,7 +44,7 @@ export const FinishModal = (props: FinishModalProps) => {
                         </picture>
                         <div class="finish-text">
                             <p>
-                                You clicked <strong>{props.clicks}</strong> times with <strong>{getAccuracy(props.cart, props.clicks)}</strong> accuracy.
+                                You clicked <strong>{props.clicks}</strong> times with <strong>{accuracy}</strong> accuracy.
                             </p>
                             <p>
                                 The <a href="https://requestmetrics.com/web-performance/cumulative-layout-shift/?utm_source=shifty">Cumulative Layout Shift (CLS)</a> for the site was <strong>{props.cls.toFixed(4)}</strong>, which is <strong style="color:red">Poor</strong> and will hurt their pagerank and traffic.
